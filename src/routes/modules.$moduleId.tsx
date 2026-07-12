@@ -31,14 +31,14 @@ export const Route = createFileRoute("/modules/$moduleId")({
           { property: "og:title", content: loaderData.module.title },
           { property: "og:description", content: loaderData.module.description },
         ]
-      : [{ title: "Module — AeroSkills" }],
+      : [{ title: "Módulo — AeroSkills" }],
   }),
   component: ModuleDetail,
   notFoundComponent: () => (
-    <div className="p-8 text-sm text-muted-foreground">Module not found.</div>
+    <div className="p-8 text-sm text-muted-foreground">Módulo no encontrado.</div>
   ),
   errorComponent: ({ error }) => (
-    <div className="p-8 text-sm text-destructive">Failed to load module: {error.message}</div>
+    <div className="p-8 text-sm text-destructive">Error al cargar el módulo: {error.message}</div>
   ),
 });
 
@@ -51,19 +51,19 @@ function ModuleDetail() {
         to="/modules"
         className="mb-6 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
       >
-        <ArrowLeft className="h-3 w-3" /> Back to modules
+        <ArrowLeft className="h-3 w-3" /> Volver a módulos
       </Link>
 
       <header className="mb-10 border-b border-border pb-8">
         <div className="mb-3 flex items-center gap-2">
           <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
-            Module {String(mod.order_index + 1).padStart(2, "0")}
+            Módulo {String(mod.order_index + 1).padStart(2, "0")}
           </span>
           <Badge
             variant="secondary"
             className="rounded-sm border border-primary/20 bg-accent text-[10px] font-medium uppercase tracking-wider text-primary"
           >
-            {mod.status}
+            {mod.status === "published" ? "publicado" : "borrador"}
           </Badge>
         </div>
         <h1 className="mb-3 text-3xl leading-tight md:text-4xl">{mod.title}</h1>
@@ -73,7 +73,7 @@ function ModuleDetail() {
       <section className="mb-12">
         <div className="mb-4 flex items-center gap-2">
           <BookOpen className="h-4 w-4 text-primary" />
-          <h2 className="font-display text-sm uppercase tracking-widest">Lessons</h2>
+          <h2 className="font-display text-sm uppercase tracking-widest">Lecciones</h2>
           <span className="text-xs text-muted-foreground">({lessons.length})</span>
         </div>
         <Accordion type="single" collapsible className="rounded-lg border border-border bg-card">
@@ -107,13 +107,13 @@ function ModuleDetail() {
         <section>
           <div className="mb-4 flex items-center gap-2">
             <ClipboardCheck className="h-4 w-4 text-primary" />
-            <h2 className="font-display text-sm uppercase tracking-widest">Assessment</h2>
+            <h2 className="font-display text-sm uppercase tracking-widest">Evaluación</h2>
           </div>
           <div className="rounded-lg border border-border bg-card p-6">
             <div className="mb-6 flex items-baseline justify-between border-b border-border pb-4">
               <h3 className="font-display text-lg">{quiz.title}</h3>
               <span className="text-xs text-muted-foreground">
-                Passing score: {quiz.passing_score}%
+                Nota de aprobado: {quiz.passing_score}%
               </span>
             </div>
             <ol className="flex flex-col gap-6">
@@ -121,7 +121,7 @@ function ModuleDetail() {
                 <li key={q.id}>
                   <div className="mb-3 flex items-start gap-3">
                     <span className="font-mono text-xs text-muted-foreground">
-                      Q{String(i + 1).padStart(2, "0")}
+                      P{String(i + 1).padStart(2, "0")}
                     </span>
                     <p className="text-sm font-medium">{q.question}</p>
                   </div>
@@ -140,7 +140,7 @@ function ModuleDetail() {
               ))}
             </ol>
             <p className="mt-6 border-t border-border pt-4 text-xs text-muted-foreground">
-              Interactive answering is planned for a future phase.
+              La respuesta interactiva está prevista para una fase posterior.
             </p>
           </div>
         </section>

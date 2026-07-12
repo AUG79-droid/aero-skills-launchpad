@@ -4,8 +4,8 @@ import { Shield } from "lucide-react";
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Admin Panel — AeroSkills" },
-      { name: "description", content: "Administrative area for AeroSkills Sustainability." },
+      { title: "Panel Admin — AeroSkills" },
+      { name: "description", content: "Área de administración de AeroSkills Sostenibilidad." },
       { name: "robots", content: "noindex" },
     ],
   }),
@@ -19,12 +19,12 @@ function AdminPage() {
         <Shield className="h-5 w-5" />
       </div>
       <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
-        Placeholder
+        Marcador de posición
       </span>
-      <h1 className="mt-1 text-3xl">Admin Panel</h1>
+      <h1 className="mt-1 text-3xl">Panel Admin</h1>
       <p className="mt-3 text-sm text-muted-foreground">
-        Authoring tools for modules, lessons, and assessments will land in a later phase. This
-        screen exists so the sidebar navigation is complete.
+        Las herramientas de autoría de módulos, lecciones y evaluaciones llegarán en una fase
+        posterior. Esta pantalla existe para que la navegación lateral quede completa.
       </p>
     </div>
   );
