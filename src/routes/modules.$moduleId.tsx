@@ -12,7 +12,9 @@ import { getModuleDetail } from "@/lib/modules";
 
 export const Route = createFileRoute("/modules/$moduleId")({
   loader: async ({ params, context }) => {
-    const data = await context.queryClient.ensureQueryData({
+    const data = await context.queryClient.ensureQueryData<
+      Awaited<ReturnType<typeof getModuleDetail>>
+    >({
       queryKey: ["module", params.moduleId],
       queryFn: () => getModuleDetail(params.moduleId),
     });
