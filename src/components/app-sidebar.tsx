@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { BookOpen, Shield, Leaf } from "lucide-react";
+import { BookOpen, Leaf } from "lucide-react";
 
 import {
   Sidebar,
@@ -13,10 +13,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-const navItems = [
-  { title: "Módulos", url: "/modules", icon: BookOpen },
-  { title: "Panel Admin", url: "/admin", icon: Shield },
-];
+const navItems = [{ title: "Learning modules", url: "/modules", icon: BookOpen }];
 
 export function AppSidebar() {
   const pathname = useRouterState({ select: (r) => r.location.pathname });
@@ -32,14 +29,14 @@ export function AppSidebar() {
           </div>
           <div className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
             <span className="font-display text-sm font-bold tracking-tight">AeroSkills</span>
-            <span className="text-xs text-muted-foreground">Sostenibilidad</span>
+            <span className="text-xs text-muted-foreground">Aviation Sustainability</span>
           </div>
         </Link>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="font-display text-[10px] uppercase tracking-widest">
-            Formación
+            Learn
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

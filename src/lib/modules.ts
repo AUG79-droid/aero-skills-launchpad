@@ -21,7 +21,6 @@ export type QuizOptionRow = {
   id: string;
   question_id: string;
   option_text: string;
-  is_correct: boolean;
   order_index: number;
 };
 
@@ -41,6 +40,13 @@ export type QuizRow = {
   questions: QuizQuestionRow[];
 };
 
+export type QuizGrade = {
+  score: number;
+  passed: boolean;
+  correctCount: number;
+  total: number;
+};
+
 export async function listModulesWithLessonCount() {
   const [{ data: modules, error: mErr }, { data: lessons, error: lErr }] = await Promise.all([
     supabase
@@ -48,13 +54,27 @@ export async function listModulesWithLessonCount() {
       .select("id,title,description,cover_image_url,order_index,status")
       .eq("status", "published")
       .order("order_index"),
-    supabase.from("lessons").select("module_id"),
+    supabase.from("lessons").select("id,module_id").order("order_index"),
   ]);
+
   if (mErr) throw mErr;
   if (lErr) throw lErr;
-  const counts = new Map<string, number>();
-  for (const l of lessons ?? []) counts.set(l.module_id, (counts.get(l.module_id) ?? 0) + 1);
-  return (modules ?? []).map((m) => ({ ...(m as ModuleRow), lessonCount: counts.get(m.id) ?? 0 }));
+
+  const lessonIdsByModule = new Map<string, string[]>();
+  for (const lesson of lessons ?? []) {
+    const current = lessonIdsByModule.get(lesson.module_id) ?? [];
+    current.push(lesson.id);
+    lessonIdsByModule.set(lesson.module_id, current);
+  }
+
+  return (modules ?? []).map((module) => {
+    const lessonIds = lessonIdsByModule.get(module.id) ?? [];
+    return {
+      ...(module as ModuleRow),
+      lessonCount: lessonIds.length,
+      lessonIds,
+    };
+  });
 }
 
 export async function getModuleDetail(moduleId: string) {
@@ -62,7 +82,9 @@ export async function getModuleDetail(moduleId: string) {
     .from("modules")
     .select("id,title,description,cover_image_url,order_index,status")
     .eq("id", moduleId)
+    .eq("status", "published")
     .maybeSingle();
+
   if (mErr) throw mErr;
   if (!mod) return null;
 
@@ -78,6 +100,7 @@ export async function getModuleDetail(moduleId: string) {
       .eq("module_id", moduleId)
       .maybeSingle(),
   ]);
+
   if (lErr) throw lErr;
   if (qErr) throw qErr;
 
@@ -88,21 +111,27 @@ export async function getModuleDetail(moduleId: string) {
       .select("id,quiz_id,question,order_index")
       .eq("quiz_id", quiz.id)
       .order("order_index");
+
     if (qqErr) throw qqErr;
-    const qIds = (questions ?? []).map((q) => q.id);
-    const { data: options, error: optErr } = qIds.length
+
+    const questionIds = (questions ?? []).map((question) => question.id);
+    const { data: options, error: optErr } = questionIds.length
       ? await supabase
           .from("quiz_options")
-          .select("id,question_id,option_text,is_correct,order_index")
-          .in("question_id", qIds)
+          .select("id,question_id,option_text,order_index")
+          .in("question_id", questionIds)
           .order("order_index")
       : { data: [], error: null };
+
     if (optErr) throw optErr;
+
     quizWithQuestions = {
       ...(quiz as Omit<QuizRow, "questions">),
-      questions: (questions ?? []).map((q) => ({
-        ...(q as Omit<QuizQuestionRow, "options">),
-        options: (options ?? []).filter((o) => o.question_id === q.id) as QuizOptionRow[],
+      questions: (questions ?? []).map((question) => ({
+        ...(question as Omit<QuizQuestionRow, "options">),
+        options: (options ?? []).filter(
+          (option) => option.question_id === question.id,
+        ) as QuizOptionRow[],
       })),
     };
   }
@@ -111,5 +140,24 @@ export async function getModuleDetail(moduleId: string) {
     module: mod as ModuleRow,
     lessons: (lessons ?? []) as LessonRow[],
     quiz: quizWithQuestions,
+  };
+}
+
+export async function gradeQuiz(
+  quizId: string,
+  answers: Record<string, string>,
+): Promise<QuizGrade> {
+  const { data, error } = await (supabase as any).rpc("grade_quiz", {
+    p_quiz_id: quizId,
+    p_answers: answers,
+  });
+
+  if (error) throw error;
+
+  return {
+    score: Number(data?.score ?? 0),
+    passed: Boolean(data?.passed),
+    correctCount: Number(data?.correct_count ?? 0),
+    total: Number(data?.total ?? 0),
   };
 }
