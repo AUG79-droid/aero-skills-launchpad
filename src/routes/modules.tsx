@@ -32,7 +32,7 @@ export const Route = createFileRoute("/modules")({
 });
 
 function ModulesPage() {
-  const modules = Route.useLoaderData();
+  const modules = Route.useLoaderData() as Awaited<ReturnType<typeof listModulesWithLessonCount>>;
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-10 md:px-10">
