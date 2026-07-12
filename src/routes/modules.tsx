@@ -1,4 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Link,
+  Outlet,
+  useRouterState,
+} from "@tanstack/react-router";
 import { ArrowUpRight, BookOpen, RotateCcw, ShieldCheck } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -26,11 +31,21 @@ export const Route = createFileRoute("/modules")({
       queryKey: ["modules"],
       queryFn: listModulesWithLessonCount,
     }),
-  component: ModulesPage,
+  component: ModulesRoute,
   errorComponent: ({ error }) => (
     <div className="p-8 text-sm text-destructive">Unable to load the modules: {error.message}</div>
   ),
 });
+
+function ModulesRoute() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+
+  if (pathname !== "/modules" && pathname !== "/modules/") {
+    return <Outlet />;
+  }
+
+  return <ModulesPage />;
+}
 
 function ModulesPage() {
   const modules = Route.useLoaderData() as Awaited<ReturnType<typeof listModulesWithLessonCount>>;
