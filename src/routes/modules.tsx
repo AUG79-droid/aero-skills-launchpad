@@ -21,7 +21,7 @@ export const Route = createFileRoute("/modules")({
     ],
   }),
   loader: async ({ context }) =>
-    context.queryClient.ensureQueryData({
+    context.queryClient.ensureQueryData<Awaited<ReturnType<typeof listModulesWithLessonCount>>>({
       queryKey: ["modules"],
       queryFn: listModulesWithLessonCount,
     }),
