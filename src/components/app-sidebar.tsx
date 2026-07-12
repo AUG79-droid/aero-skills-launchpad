@@ -32,7 +32,7 @@ export function AppSidebar() {
           </div>
           <div className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
             <span className="font-display text-sm font-bold tracking-tight">AeroSkills</span>
-            <span className="text-xs text-muted-foreground">Sustainability</span>
+            <span className="text-xs text-muted-foreground">Sostenibilidad</span>
           </div>
         </Link>
       </SidebarHeader>
