@@ -10,8 +10,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { getModuleDetail } from "@/lib/modules";
 
+type ModuleDetailData = NonNullable<Awaited<ReturnType<typeof getModuleDetail>>>;
+
 export const Route = createFileRoute("/modules/$moduleId")({
-  loader: async ({ params, context }) => {
+  loader: async ({ params, context }): Promise<ModuleDetailData> => {
     const data = await context.queryClient.ensureQueryData<
       Awaited<ReturnType<typeof getModuleDetail>>
     >({
