@@ -43,7 +43,7 @@ export const Route = createFileRoute("/modules/$moduleId")({
 });
 
 function ModuleDetail() {
-  const { module: mod, lessons, quiz } = Route.useLoaderData();
+  const { module: mod, lessons, quiz } = Route.useLoaderData() as ModuleDetailData;
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-10 md:px-10">
