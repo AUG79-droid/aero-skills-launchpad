@@ -21,7 +21,6 @@ export type QuizOptionRow = {
   id: string;
   question_id: string;
   option_text: string;
-  is_correct: boolean;
   order_index: number;
 };
 
@@ -39,6 +38,13 @@ export type QuizRow = {
   title: string;
   passing_score: number;
   questions: QuizQuestionRow[];
+};
+
+export type QuizGrade = {
+  score: number;
+  passed: boolean;
+  correctCount: number;
+  total: number;
 };
 
 export async function listModulesWithLessonCount() {
@@ -62,6 +68,7 @@ export async function getModuleDetail(moduleId: string) {
     .from("modules")
     .select("id,title,description,cover_image_url,order_index,status")
     .eq("id", moduleId)
+    .eq("status", "published")
     .maybeSingle();
   if (mErr) throw mErr;
   if (!mod) return null;
@@ -93,7 +100,7 @@ export async function getModuleDetail(moduleId: string) {
     const { data: options, error: optErr } = qIds.length
       ? await supabase
           .from("quiz_options")
-          .select("id,question_id,option_text,is_correct,order_index")
+          .select("id,question_id,option_text,order_index")
           .in("question_id", qIds)
           .order("order_index")
       : { data: [], error: null };
@@ -111,5 +118,21 @@ export async function getModuleDetail(moduleId: string) {
     module: mod as ModuleRow,
     lessons: (lessons ?? []) as LessonRow[],
     quiz: quizWithQuestions,
+  };
+}
+
+export async function gradeQuiz(quizId: string, answers: Record<string, string>): Promise<QuizGrade> {
+  const { data, error } = await (supabase as any).rpc("grade_quiz", {
+    p_quiz_id: quizId,
+    p_answers: answers,
+  });
+
+  if (error) throw error;
+
+  return {
+    score: Number(data?.score ?? 0),
+    passed: Boolean(data?.passed),
+    correctCount: Number(data?.correct_count ?? 0),
+    total: Number(data?.total ?? 0),
   };
 }
