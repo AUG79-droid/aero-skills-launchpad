@@ -7,45 +7,11 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instantiate createClient with right options
-  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "14.5"
   }
   public: {
     Tables: {
-      lesson_progress: {
-        Row: {
-          completed: boolean
-          completed_at: string | null
-          id: string
-          lesson_id: string
-          user_id: string
-        }
-        Insert: {
-          completed?: boolean
-          completed_at?: string | null
-          id?: string
-          lesson_id: string
-          user_id: string
-        }
-        Update: {
-          completed?: boolean
-          completed_at?: string | null
-          id?: string
-          lesson_id?: string
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "lesson_progress_lesson_id_fkey"
-            columns: ["lesson_id"]
-            isOneToOne: false
-            referencedRelation: "lessons"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       lessons: {
         Row: {
           content: string
@@ -87,41 +53,6 @@ export type Database = {
           },
         ]
       }
-      module_progress: {
-        Row: {
-          completed: boolean
-          completed_at: string | null
-          id: string
-          module_id: string
-          progress_percent: number
-          user_id: string
-        }
-        Insert: {
-          completed?: boolean
-          completed_at?: string | null
-          id?: string
-          module_id: string
-          progress_percent?: number
-          user_id: string
-        }
-        Update: {
-          completed?: boolean
-          completed_at?: string | null
-          id?: string
-          module_id?: string
-          progress_percent?: number
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "module_progress_module_id_fkey"
-            columns: ["module_id"]
-            isOneToOne: false
-            referencedRelation: "modules"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       modules: {
         Row: {
           cover_image_url: string | null
@@ -154,71 +85,6 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
-      }
-      profiles: {
-        Row: {
-          created_at: string
-          department: string | null
-          email: string
-          full_name: string
-          id: string
-          role: string
-        }
-        Insert: {
-          created_at?: string
-          department?: string | null
-          email: string
-          full_name: string
-          id: string
-          role?: string
-        }
-        Update: {
-          created_at?: string
-          department?: string | null
-          email?: string
-          full_name?: string
-          id?: string
-          role?: string
-        }
-        Relationships: []
-      }
-      quiz_attempts: {
-        Row: {
-          answers: Json
-          attempted_at: string
-          id: string
-          passed: boolean
-          quiz_id: string
-          score: number
-          user_id: string
-        }
-        Insert: {
-          answers?: Json
-          attempted_at?: string
-          id?: string
-          passed: boolean
-          quiz_id: string
-          score: number
-          user_id: string
-        }
-        Update: {
-          answers?: Json
-          attempted_at?: string
-          id?: string
-          passed?: boolean
-          quiz_id?: string
-          score?: number
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "quiz_attempts_quiz_id_fkey"
-            columns: ["quiz_id"]
-            isOneToOne: false
-            referencedRelation: "quizzes"
-            referencedColumns: ["id"]
-          },
-        ]
       }
       quiz_options: {
         Row: {
@@ -321,7 +187,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      grade_quiz: {
+        Args: {
+          p_answers: Json
+          p_quiz_id: string
+        }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never
@@ -439,7 +311,7 @@ export type CompositeTypes<
   CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
     schema: keyof DatabaseWithoutInternals
   }
-    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    ? keyof DatabaseWithoutInternals[DefaultSchemaCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
     : never = never,
 > = PublicCompositeTypeNameOrOptions extends {
   schema: keyof DatabaseWithoutInternals
