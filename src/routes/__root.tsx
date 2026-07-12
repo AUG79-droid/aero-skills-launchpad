@@ -92,10 +92,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Internal training platform for Airbus employees on aviation sustainability.",
+          "Internal training platform for Airbus employees on aviation sustainability: SAF, ZEROe hydrogen, CORSIA, circular manufacturing and more.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AeroSkills Sustainability — Airbus Employee Training" },
+      { name: "twitter:description", content: "Internal training platform for Airbus employees on aviation sustainability: SAF, ZEROe hydrogen, CORSIA, circular manufacturing and more." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/83470b8f-8d1b-4ca0-9860-2b9747bd36c9/id-preview-ed43129b--acc8900d-3d93-42f5-86de-2b479f24dae1.lovable.app-1783875172428.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/83470b8f-8d1b-4ca0-9860-2b9747bd36c9/id-preview-ed43129b--acc8900d-3d93-42f5-86de-2b479f24dae1.lovable.app-1783875172428.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
