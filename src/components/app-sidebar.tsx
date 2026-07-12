@@ -39,7 +39,7 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="font-display text-[10px] uppercase tracking-widest">
-            Learning
+            Formación
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
