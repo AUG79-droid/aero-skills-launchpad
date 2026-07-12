@@ -1,0 +1,1 @@
+This repository is being expanded into a full aviation sustainability course. The active implementation should continue on a dedicated branch before publication.
