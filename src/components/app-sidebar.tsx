@@ -14,8 +14,8 @@ import {
 } from "@/components/ui/sidebar";
 
 const navItems = [
-  { title: "Modules", url: "/modules", icon: BookOpen },
-  { title: "Admin Panel", url: "/admin", icon: Shield },
+  { title: "Módulos", url: "/modules", icon: BookOpen },
+  { title: "Panel Admin", url: "/admin", icon: Shield },
 ];
 
 export function AppSidebar() {
