@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { LessonContent } from "@/components/lesson-content";
 import {
   readLocalProgress,
   saveQuizScore,
@@ -199,13 +200,7 @@ function ModuleDetail() {
                 </AccordionTrigger>
 
                 <AccordionContent className="px-5 pb-5 pl-14">
-                  <div className="text-sm leading-relaxed text-muted-foreground">
-                    {lesson.content.split("\n\n").map((paragraph, paragraphIndex) => (
-                      <p key={paragraphIndex} className="mb-3 last:mb-0">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+                  <LessonContent content={lesson.content} />
                   <button
                     type="button"
                     onClick={() => toggleLesson(lesson.id)}
