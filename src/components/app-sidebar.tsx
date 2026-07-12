@@ -14,8 +14,8 @@ import {
 } from "@/components/ui/sidebar";
 
 const navItems = [
-  { title: "Modules", url: "/modules", icon: BookOpen },
-  { title: "Admin Panel", url: "/admin", icon: Shield },
+  { title: "Módulos", url: "/modules", icon: BookOpen },
+  { title: "Panel Admin", url: "/admin", icon: Shield },
 ];
 
 export function AppSidebar() {
@@ -32,14 +32,14 @@ export function AppSidebar() {
           </div>
           <div className="flex flex-col leading-tight group-data-[collapsible=icon]:hidden">
             <span className="font-display text-sm font-bold tracking-tight">AeroSkills</span>
-            <span className="text-xs text-muted-foreground">Sustainability</span>
+            <span className="text-xs text-muted-foreground">Sostenibilidad</span>
           </div>
         </Link>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="font-display text-[10px] uppercase tracking-widest">
-            Learning
+            Formación
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
