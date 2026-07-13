@@ -1,3 +1,4 @@
+import { expandedLessonsByModule } from "@/data/course-content";
 import { supabase } from "@/integrations/supabase/client";
 
 export type ModuleRow = {
@@ -48,27 +49,16 @@ export type QuizGrade = {
 };
 
 export async function listModulesWithLessonCount() {
-  const [{ data: modules, error: mErr }, { data: lessons, error: lErr }] = await Promise.all([
-    supabase
-      .from("modules")
-      .select("id,title,description,cover_image_url,order_index,status")
-      .eq("status", "published")
-      .order("order_index"),
-    supabase.from("lessons").select("id,module_id").order("order_index"),
-  ]);
+  const { data: modules, error } = await supabase
+    .from("modules")
+    .select("id,title,description,cover_image_url,order_index,status")
+    .eq("status", "published")
+    .order("order_index");
 
-  if (mErr) throw mErr;
-  if (lErr) throw lErr;
+  if (error) throw error;
 
-  const lessonIdsByModule = new Map<string, string[]>();
-  for (const lesson of lessons ?? []) {
-    const current = lessonIdsByModule.get(lesson.module_id) ?? [];
-    current.push(lesson.id);
-    lessonIdsByModule.set(lesson.module_id, current);
-  }
-
-  return (modules ?? []).map((module) => {
-    const lessonIds = lessonIdsByModule.get(module.id) ?? [];
+  return ((modules ?? []) as ModuleRow[]).map((module) => {
+    const lessonIds = (expandedLessonsByModule[module.id] ?? []).map((item) => item.id);
     return {
       ...(module as ModuleRow),
       lessonCount: lessonIds.length,
@@ -78,44 +68,37 @@ export async function listModulesWithLessonCount() {
 }
 
 export async function getModuleDetail(moduleId: string) {
-  const { data: mod, error: mErr } = await supabase
+  const { data: mod, error: moduleError } = await supabase
     .from("modules")
     .select("id,title,description,cover_image_url,order_index,status")
     .eq("id", moduleId)
     .eq("status", "published")
     .maybeSingle();
 
-  if (mErr) throw mErr;
+  if (moduleError) throw moduleError;
   if (!mod) return null;
 
-  const [{ data: lessons, error: lErr }, { data: quiz, error: qErr }] = await Promise.all([
-    supabase
-      .from("lessons")
-      .select("id,module_id,title,content,order_index")
-      .eq("module_id", moduleId)
-      .order("order_index"),
-    supabase
-      .from("quizzes")
-      .select("id,module_id,title,passing_score")
-      .eq("module_id", moduleId)
-      .maybeSingle(),
-  ]);
+  const { data: quiz, error: quizError } = await supabase
+    .from("quizzes")
+    .select("id,module_id,title,passing_score")
+    .eq("module_id", moduleId)
+    .maybeSingle();
 
-  if (lErr) throw lErr;
-  if (qErr) throw qErr;
+  if (quizError) throw quizError;
 
   let quizWithQuestions: QuizRow | null = null;
   if (quiz) {
-    const { data: questions, error: qqErr } = await supabase
+    const { data: questions, error: questionError } = await supabase
       .from("quiz_questions")
       .select("id,quiz_id,question,order_index")
       .eq("quiz_id", quiz.id)
       .order("order_index");
 
-    if (qqErr) throw qqErr;
+    if (questionError) throw questionError;
 
-    const questionIds = (questions ?? []).map((question) => question.id);
-    const { data: options, error: optErr } = questionIds.length
+    const typedQuestions = (questions ?? []) as Array<Omit<QuizQuestionRow, "options">>;
+    const questionIds = typedQuestions.map((question) => question.id);
+    const { data: options, error: optionError } = questionIds.length
       ? await supabase
           .from("quiz_options")
           .select("id,question_id,option_text,order_index")
@@ -123,13 +106,13 @@ export async function getModuleDetail(moduleId: string) {
           .order("order_index")
       : { data: [], error: null };
 
-    if (optErr) throw optErr;
+    if (optionError) throw optionError;
 
     quizWithQuestions = {
       ...(quiz as Omit<QuizRow, "questions">),
-      questions: (questions ?? []).map((question) => ({
+      questions: typedQuestions.map((question) => ({
         ...(question as Omit<QuizQuestionRow, "options">),
-        options: (options ?? []).filter(
+        options: ((options ?? []) as QuizOptionRow[]).filter(
           (option) => option.question_id === question.id,
         ) as QuizOptionRow[],
       })),
@@ -138,7 +121,7 @@ export async function getModuleDetail(moduleId: string) {
 
   return {
     module: mod as ModuleRow,
-    lessons: (lessons ?? []) as LessonRow[],
+    lessons: (expandedLessonsByModule[moduleId] ?? []) as LessonRow[],
     quiz: quizWithQuestions,
   };
 }
