@@ -1,3 +1,5 @@
+import { professionalDepthByLesson } from "./course-depth";
+
 export type CourseLesson = {
   id: string;
   module_id: string;
@@ -28,7 +30,7 @@ const M6 = "addd634c-87e8-43c6-9095-b785a0c80c51";
 const M7 = "54e69658-1cba-4e40-b56c-3450274fe03b";
 const M8 = "ead97f8a-17ee-4635-bdae-d430a9a08365";
 
-export const expandedLessonsByModule: Record<string, CourseLesson[]> = {
+const baseLessonsByModule: Record<string, CourseLesson[]> = {
   [M1]: [
     lesson(M1, 1, "Sustainability as an aviation systems challenge", `
 ## Why isolated solutions fail
@@ -944,3 +946,13 @@ KEY TAKEAWAY: Trust grows when progress, uncertainty and remaining gaps are gove
     `),
   ],
 };
+
+export const expandedLessonsByModule: Record<string, CourseLesson[]> = Object.fromEntries(
+  Object.entries(baseLessonsByModule).map(([moduleId, lessons]) => [
+    moduleId,
+    lessons.map((item) => ({
+      ...item,
+      content: `${item.content.trim()}\n\n${professionalDepthByLesson[item.id]?.trim() ?? ""}`.trim(),
+    })),
+  ]),
+);
