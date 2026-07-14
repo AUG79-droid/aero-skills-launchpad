@@ -1,4 +1,6 @@
 import { professionalDepthByLesson } from "./course-depth";
+import { advancedLearningByLesson } from "./course-mastery";
+import { appliedLabByLesson } from "./course-labs";
 
 export type CourseLesson = {
   id: string;
@@ -952,7 +954,15 @@ export const expandedLessonsByModule: Record<string, CourseLesson[]> = Object.fr
     moduleId,
     lessons.map((item) => ({
       ...item,
-      content: `${item.content.trim()}\n\n${professionalDepthByLesson[item.id]?.trim() ?? ""}`.trim(),
+      content: [
+        item.content.trim(),
+        advancedLearningByLesson[item.id]?.trim(),
+        professionalDepthByLesson[item.id]?.trim(),
+        appliedLabByLesson[item.id]?.trim(),
+      ]
+        .filter(Boolean)
+        .join("\n\n")
+        .trim(),
     })),
   ]),
 );
