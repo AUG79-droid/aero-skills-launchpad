@@ -10,6 +10,17 @@ import { useEffect, useMemo, useState } from "react";
 import { clearLocalProgress, readLocalProgress } from "@/lib/local-progress";
 import { listModulesWithLessonCount } from "@/lib/modules";
 
+const moduleCoverById: Record<string, string> = {
+  "f35868c6-ef6d-4d2e-937e-f8fd6fe69a5e": "/module-covers/module-01-systems.webp",
+  "80601dab-e1d8-4fba-b7eb-14c4d1cc1b63": "/module-covers/module-02-climate.webp",
+  "a976f431-fb64-45ea-aa08-6c330022521c": "/module-covers/module-03-saf.webp",
+  "e7c6459a-7eb1-452d-94eb-3d37037004b0": "/module-covers/module-04-hydrogen-rd.webp",
+  "2075611c-3d65-4554-9344-ecc3527a0b97": "/module-covers/module-05-operations.webp",
+  "addd634c-87e8-43c6-9095-b785a0c80c51": "/module-covers/module-06-regulation.webp",
+  "54e69658-1cba-4e40-b56c-3450274fe03b": "/module-covers/module-07-circularity.webp",
+  "ead97f8a-17ee-4635-bdae-d430a9a08365": "/module-covers/module-08-roadmap.webp",
+};
+
 export const Route = createFileRoute("/modules")({
   head: () => ({
     meta: [
@@ -110,6 +121,7 @@ function ModulesPage() {
           const percentage = module.lessonCount
             ? Math.round((completedLessons / module.lessonCount) * 100)
             : 0;
+          const coverImage = moduleCoverById[module.id];
 
           return (
             <Link
@@ -119,9 +131,19 @@ function ModulesPage() {
               className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-[180ms] ease-out hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
             >
               <div className="relative flex h-36 items-center justify-center overflow-hidden border-b border-border bg-secondary">
-                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <BookOpen className="h-5 w-5" aria-hidden="true" />
-                </div>
+                {coverImage ? (
+                  <img
+                    src={coverImage}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                ) : (
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <BookOpen className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                )}
                 <span className="absolute left-3 top-3 rounded-sm bg-background/90 px-2 py-1 font-display text-[10px] uppercase tracking-widest text-foreground backdrop-blur-sm">
                   Module {String(module.order_index + 1).padStart(2, "0")}
                 </span>
