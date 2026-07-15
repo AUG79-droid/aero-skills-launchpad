@@ -412,7 +412,7 @@ New architectures require fault-tolerant design, fire and explosion assessment, 
 
 REFLECTION: Which omitted subsystem would most likely reverse a comparison based only on converter efficiency?
 
-KEY TAKEAWAY: Aircraft sustainability comparisons use complete propulsion and energy systems under the same mission assumptions.
+KEY TAKEAWAY: Aircraft environmental comparisons use complete propulsion and energy systems under the same mission assumptions.
     `,
     `
 ## Professional deep dive: calculate upstream credibility
@@ -529,7 +529,7 @@ KEY TAKEAWAY: Eco-efficiency programmes should connect detected performance loss
     `
 ## Professional deep dive: avoid perverse fuel incentives
 
-Fuel policy balances efficiency with uncertainty and resilience. Dispatch requirements, contingency, alternate, final reserve and additional fuel have different purposes. A sustainability initiative should never reduce the authority of dispatchers or commanders to respond to weather, congestion, technical uncertainty or destination risk.
+Fuel policy balances efficiency with uncertainty and resilience. Dispatch requirements, contingency, alternate, final reserve and additional fuel have different purposes. A fuel- or emissions-reduction initiative must never reduce the authority of dispatchers or commanders to respond to weather, congestion, technical uncertainty or destination risk.
 
 ### Data-led improvement
 
