@@ -154,7 +154,7 @@ The team calculates a mass-related operational benefit under low, central and hi
 
 ### Decision lab
 
-Option A costs €20,000 more and saves an estimated 40–80 tonnes CO2-equivalent over its life. Option B has lower climate benefit but avoids a substance of very high concern. Do not calculate a winner immediately. First identify whether the substance criterion is a mandatory control, whether exposure and substitution requirements have been assessed, and whether the climate ranges overlap. Then define what further evidence has the greatest decision value.
+Option A costs €20,000 more and saves an estimated 40–80 tonnes CO2-equivalent over its life. Option B has a smaller estimated life-cycle greenhouse-gas reduction against the same baseline but avoids a substance of very high concern. Do not calculate a winner immediately. First identify whether the substance criterion is a mandatory control, whether exposure and substitution requirements have been assessed, and whether the greenhouse-gas ranges overlap. Then define what further evidence has the greatest decision value.
 
 REFLECTION: Which assumption in a recent environmental proposal, if wrong, would reverse the recommendation? That assumption should be monitored as a decision risk.
     `,
@@ -254,7 +254,7 @@ EASA's environmental reporting stresses that aviation's climate impact includes 
 
 ### Engine and fuel case
 
-A low-aromatic fuel blend reduces soot measured behind an engine. This is a valuable physical result. To estimate climate benefit, researchers then model ice-crystal number, contrail optical properties, atmospheric persistence and radiation. An honest communication separates: fuel composition was measured; soot response was observed; contrail response was inferred or observed under specified conditions; climate response was modelled. Each result has its own uncertainty.
+A low-aromatic fuel blend reduces soot measured behind an engine. This is a valuable physical result. To estimate the change in climate effect, researchers then model ice-crystal number, contrail optical properties, atmospheric persistence and radiation. An honest communication separates: fuel composition was measured; soot response was observed; contrail response was inferred or observed under specified conditions; climate response was modelled. Each result has its own uncertainty.
 
 ### Interpretation exercise
 
@@ -376,7 +376,7 @@ Bayesian thinking can be used informally: begin with prior evidence, conduct a t
 
 A prototype predicts contrail hotspots and proposes small altitude changes. The implementation team defines hard operational constraints, a minimum predicted benefit, a maximum fuel penalty and a dispatcher override. It starts on routes with good forecast coverage. Post-flight analysis compares predictions with updated weather and observations. If forecast performance falls below threshold for three consecutive review periods, recommendations pause while the model is investigated.
 
-Results are reported in categories: flights screened, alternatives offered, alternatives accepted, modelled benefit, verified meteorological performance and additional fuel. The tool's reach is not confused with achieved climate benefit.
+Results are reported in categories: flights screened, alternatives offered, alternatives accepted, modelled change in climate effect, verified meteorological performance and additional fuel. The tool's reach is not confused with a verified reduction in climate effect.
 
 ### Decision worksheet
 
@@ -406,7 +406,7 @@ KEY TAKEAWAY: Uncertainty is managed through staged commitment, measurement and 
 ### Learning objectives
 
 - Define sustainable aviation fuel in technical rather than promotional terms.
-- Distinguish drop-in compatibility, feedstock sustainability and life-cycle performance.
+- Distinguish drop-in compatibility, feedstock eligibility and life-cycle performance.
 - Identify the evidence required before making a SAF emissions claim.
 
 ### A fuel category, not one product
@@ -453,13 +453,13 @@ KEY TAKEAWAY: A credible SAF statement identifies what fuel, how much, which pat
 
 ### Major pathway families
 
-**HEFA** converts oils and fats through hydrogen treatment. It is commercially mature and currently important, but sustainable lipid feedstocks are limited and already demanded by other sectors. Performance depends on feedstock type, hydrogen source and co-product treatment.
+**HEFA** converts oils and fats through hydrogen treatment. It is commercially mature and currently important, but lipid feedstocks meeting the applicable certification scheme's eligibility criteria are limited and already demanded by other sectors. Performance depends on feedstock type, hydrogen source and co-product treatment.
 
 **Fischer–Tropsch** pathways convert a synthesis gas made from biomass, waste or captured carbon and hydrogen into hydrocarbons. Gasification and cleaning must handle variable feedstock. Municipal waste routes require careful definition of the fossil and biogenic fractions and the counterfactual treatment of that waste.
 
 **Alcohol-to-jet** converts alcohols such as ethanol or isobutanol into jet-range hydrocarbons. The upstream alcohol may come from sugars, starches, residues, cellulosic material or other routes. Agricultural practices, land use and process energy can dominate the result.
 
-**Power-to-liquid**, also called e-fuel or synthetic aviation fuel, combines renewable hydrogen with captured carbon to make hydrocarbons. Its long-term resource base can be large, but it needs substantial additional low-carbon electricity, electrolysers, CO2 supply and conversion capacity. Using grid electricity with high carbon intensity can erode or eliminate the anticipated climate benefit.
+**Power-to-liquid**, also called e-fuel or synthetic aviation fuel, combines electrolytic hydrogen with captured carbon to make hydrocarbons. Its long-term resource base can be large, but it needs substantial additional electricity meeting a defined life-cycle greenhouse-gas threshold, electrolysers, CO2 supply and conversion capacity. Using grid electricity with high carbon intensity can erode or eliminate the anticipated well-to-wake emissions reduction against fossil jet fuel.
 
 ### Resource efficiency matters
 
@@ -980,7 +980,7 @@ Route A is the fuel minimum. Route B adds 0.3% fuel and has high predicted contr
 
 ### Fairness and network governance
 
-Climate rerouting can create cost, delay or airspace burdens for particular operators or regions while climate benefit is global. Capacity constraints mean not every flight can receive its preferred trajectory. Allocation rules should be transparent and coordinated with network management. Trials should monitor whether one airline, route or shift systematically bears the cost.
+Climate rerouting can create cost, delay or airspace burdens for particular operators or regions while the modelled change in climate effect is assessed across the network. Capacity constraints mean not every flight can receive its preferred trajectory. Allocation rules should be transparent and coordinated with network management. Trials should monitor whether one airline, route or shift systematically bears the cost.
 
 ### Decision protocol
 
@@ -1016,7 +1016,7 @@ Measurement starts with a counterfactual. APU time during mandatory engine or sy
 
 ### Electrification calculation
 
-Suppose electric units displace 150,000 litres of diesel. If the approved diesel factor is 2.68 kg CO2 per litre, avoided direct CO2 is about 402 tonnes. Chargers record 420 MWh at the meter. With electricity at 80 kg CO2e/MWh, operational electricity emissions are about 33.6 tonnes, giving a simplified operational climate benefit of 368 tonnes before manufacturing and upstream diesel. Local NOx, particles and noise are additional categories, not converted automatically into CO2.
+Suppose electric units displace 150,000 litres of diesel. If the approved diesel factor is 2.68 kg CO2 per litre, avoided direct CO2 is about 402 tonnes. Chargers record 420 MWh at the meter. With electricity at 80 kg CO2e/MWh, operational electricity emissions are about 33.6 tonnes, giving an estimated operational reduction of 368 tonnes CO2e against the stated diesel baseline, before manufacturing and upstream diesel. Local NOx, particles and noise are additional categories, not converted automatically into CO2.
 
 If backup diesel is used for 30% of planned hours because chargers fail, calculate actual displacement rather than assuming full replacement. Charger reliability may create more environmental value than buying additional vehicles that cannot charge.
 
