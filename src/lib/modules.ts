@@ -48,6 +48,81 @@ export type QuizGrade = {
   total: number;
 };
 
+const modulePresentationById: Record<string, Pick<ModuleRow, "title" | "description">> = {
+  "f35868c6-ef6d-4d2e-937e-f8fd6fe69a5e": {
+    title: "Foundations of Aviation Environmental Performance",
+    description:
+      "Understand environmental performance in aviation as a systems challenge and learn to evaluate life-cycle impacts, trade-offs, evidence and controlled action.",
+  },
+  "80601dab-e1d8-4fba-b7eb-14c4d1cc1b63": {
+    title: "Aviation and Climate Change: CO2 and Non-CO2 Effects",
+    description:
+      "Understand how carbon dioxide, nitrogen oxides, particles and contrails affect climate, including the importance of location, timing, metric and uncertainty.",
+  },
+  "a976f431-fb64-45ea-aa08-6c330022521c": {
+    title: "Sustainable Aviation Fuel (SAF)",
+    description:
+      "Learn the regulated SAF category, why certified life-cycle greenhouse-gas intensity varies by pathway, and how technical approval, traceability and scale affect claims.",
+  },
+  "e7c6459a-7eb1-452d-94eb-3d37037004b0": {
+    title: "Hydrogen-Propelled Aviation and the ZEROe R&D Programme",
+    description:
+      "Explore hydrogen properties, aircraft architectures and ZEROe as ongoing research and development for a future hydrogen-propelled aircraft, including life-cycle and non-CO2 limits.",
+  },
+  "2075611c-3d65-4554-9344-ecc3527a0b97": {
+    title: "Operational Efficiency and Airspace",
+    description:
+      "Evaluate defined reductions in fuel burn and climate effects through flight planning, air traffic management, ground operations and maintenance, subject to safety and operational constraints.",
+  },
+  "addd634c-87e8-43c6-9095-b785a0c80c51": {
+    title: "CORSIA and Environmental Regulation",
+    description:
+      "Understand CORSIA, EU ETS, ReFuelEU Aviation and monitoring, reporting and verification without confusing compliance, physical reductions and environmental attributes.",
+  },
+  "54e69658-1cba-4e40-b56c-3450274fe03b": {
+    title: "Circular Economy in Aerospace Manufacturing",
+    description:
+      "Apply prevention, life extension, controlled reuse and verified material recovery to aerospace design, production, maintenance and end-of-life decisions.",
+  },
+  "ead97f8a-17ee-4635-bdae-d430a9a08365": {
+    title: "Aviation Emissions-Reduction Roadmap to 2050",
+    description:
+      "Connect technology, fuels, operations, infrastructure and policy while distinguishing Airbus actions from the ATAG, IATA and ICAO aviation-sector objectives of net-zero carbon emissions by 2050.",
+  },
+};
+
+const quizTextReplacements: Record<string, string> = {
+  "Foundations of Aviation Sustainability — Knowledge Check":
+    "Foundations of Aviation Environmental Performance — Knowledge Check",
+  "Roadmap to Net-Zero Aviation — Knowledge Check":
+    "Aviation Emissions-Reduction Roadmap to 2050 — Knowledge Check",
+  "Why is aviation sustainability best treated as a systems challenge?":
+    "Why should aviation environmental performance be treated as a systems challenge?",
+  "Because every sustainability decision has a single obvious answer":
+    "Because every environmental decision has a single obvious answer",
+  "What is the correct response when a sustainability option involves trade-offs?":
+    "What is the correct response when an environmental option involves trade-offs?",
+  "Which example is an actionable sustainability objective?":
+    "Which example is an actionable environmental objective?",
+  "Become greener soon": "Use an unspecified positive environmental slogan",
+  "Support sustainability whenever possible": "Support environmental goals without defining an action",
+  "How should a future environmental benefit be communicated?":
+    "How should a future emissions or resource-reduction estimate be communicated?",
+  "Whenever it is called green, regardless of production":
+    "Whenever it is given an undefined colour label, regardless of production",
+  "It guarantees zero emissions": "It removes the need to measure any remaining emissions",
+  "Why does net-zero aviation require a portfolio of levers?":
+    "Why do the ATAG, IATA and ICAO aviation-sector objectives of net-zero carbon emissions by 2050 require a portfolio of levers?",
+};
+
+function applyModulePresentation(module: ModuleRow): ModuleRow {
+  return { ...module, ...(modulePresentationById[module.id] ?? {}) };
+}
+
+function replaceQuizText(text: string): string {
+  return quizTextReplacements[text] ?? text;
+}
+
 export async function listModulesWithLessonCount() {
   const { data: modules, error } = await supabase
     .from("modules")
@@ -58,9 +133,10 @@ export async function listModulesWithLessonCount() {
   if (error) throw error;
 
   return ((modules ?? []) as ModuleRow[]).map((module) => {
+    const presentedModule = applyModulePresentation(module);
     const lessonIds = (expandedLessonsByModule[module.id] ?? []).map((item) => item.id);
     return {
-      ...(module as ModuleRow),
+      ...presentedModule,
       lessonCount: lessonIds.length,
       lessonIds,
     };
@@ -110,17 +186,22 @@ export async function getModuleDetail(moduleId: string) {
 
     quizWithQuestions = {
       ...(quiz as Omit<QuizRow, "questions">),
+      title: replaceQuizText(quiz.title),
       questions: typedQuestions.map((question) => ({
         ...(question as Omit<QuizQuestionRow, "options">),
+        question: replaceQuizText(question.question),
         options: ((options ?? []) as QuizOptionRow[]).filter(
           (option) => option.question_id === question.id,
-        ) as QuizOptionRow[],
+        ).map((option) => ({
+          ...option,
+          option_text: replaceQuizText(option.option_text),
+        })) as QuizOptionRow[],
       })),
     };
   }
 
   return {
-    module: mod as ModuleRow,
+    module: applyModulePresentation(mod as ModuleRow),
     lessons: (expandedLessonsByModule[moduleId] ?? []) as LessonRow[],
     quiz: quizWithQuestions,
   };
