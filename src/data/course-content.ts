@@ -272,7 +272,7 @@ KEY TAKEAWAY: Good climate governance makes uncertainty visible and still identi
 
 Sustainable aviation fuel is a category of non-fossil or recycled-carbon aviation fuels that meets defined technical and sustainability requirements. Approved synthetic blending components are produced through certified pathways and blended with conventional jet fuel within permitted limits before use as finished aviation turbine fuel.
 
-SAF can be a near-term decarbonisation lever because compatible blends can use much of the existing aircraft and fuel-distribution system. It does not make combustion emission-free: CO2, water vapour and other exhaust products still occur in flight. The potential benefit is assessed across the fuel life cycle, where biogenic or captured carbon and lower-emission production can reduce net greenhouse-gas emissions relative to fossil kerosene.
+SAF can contribute to near-term emissions reduction because compatible blends can use much of the existing aircraft and fuel-distribution system. It does not eliminate in-flight emissions: SAF and fossil kerosene release similar quantities of CO2 during combustion, together with water vapour and other exhaust products. Under a named life-cycle methodology, a certified SAF batch may have lower greenhouse-gas intensity than the specified fossil comparator; the result depends on feedstock, production energy, logistics and accounting.
 
 ### Three separate questions
 
@@ -291,7 +291,7 @@ KEY TAKEAWAY: SAF is not one fuel with one footprint. It is a family of pathways
 
 SAF pathways differ in feedstock and conversion process. Examples include hydroprocessed esters and fatty acids using oils and fats, Fischer-Tropsch fuels from biomass or wastes, alcohol-to-jet routes and power-to-liquid e-fuels made from hydrogen and captured carbon.
 
-Each pathway has different maturity, resource requirements and scalability constraints. Waste oils are relatively mature but limited in supply. Agricultural feedstocks require scrutiny of land-use change, biodiversity, food competition and agricultural inputs. E-fuels can reduce dependence on biological feedstocks but require large quantities of low-carbon electricity, hydrogen and a sustainable carbon source.
+Each pathway has different maturity, resource requirements and scalability constraints. Waste oils are relatively mature but limited in supply. Agricultural feedstocks require scrutiny of land-use change, biodiversity, food competition and agricultural inputs. E-fuels can reduce dependence on biological feedstocks but require large quantities of electricity with quantified life-cycle emissions, hydrogen and an eligible carbon source.
 
 ### Questions for pathway assessment
 
@@ -304,7 +304,7 @@ Each pathway has different maturity, resource requirements and scalability const
 
 AVIATION CASE: Used cooking oil can deliver strong performance when provenance is verified. Rapid demand growth also increases fraud risk and pressure to misclassify virgin oils as waste. Traceability and certification are therefore operational controls, not administrative decoration.
 
-KEY TAKEAWAY: Feedstock availability is not the same as sustainable availability. Scale must be tested against competing uses and environmental limits.
+KEY TAKEAWAY: Total feedstock availability is not the same as supply that meets the applicable sustainability criteria. Scale must be tested against competing uses and environmental limits.
     `),
     lesson(M3, 3, "Life-cycle assessment and sustainability criteria", `
 ## Calculating the comparison with fossil kerosene
@@ -335,7 +335,7 @@ WATCH OUT: Tailpipe CO2 and life-cycle CO2e are different metrics. Mixing them i
 
 Physical SAF supply is concentrated at a limited number of airports. Chain-of-custody systems can separate the environmental attribute from the physical fuel so that demand can be supported without transporting small fuel batches inefficiently to every buyer.
 
-Mass-balance and book-and-claim models require clear rules. The same environmental benefit must not be sold, counted or reported twice. Registries, transaction records, retirement of certificates, independent assurance and compatibility between schemes are therefore essential.
+Mass-balance and book-and-claim models require clear rules. The same environmental attribute or calculated life-cycle reduction must not be sold, counted or reported twice. Registries, transaction records, retirement of certificates, independent assurance and compatibility between schemes are therefore essential.
 
 ### Control points
 
@@ -416,7 +416,7 @@ Fuel cells convert hydrogen electrochemically into electricity. Electric motors 
 
 AVIATION CASE: A fuel-cell system may be attractive for shorter-range aircraft, while combustion can draw on turbine experience for other missions. This is not a universal ranking; it is a mission-specific architecture decision.
 
-WATCH OUT: “Zero-emission aircraft” can be misunderstood. Always specify whether the statement refers to direct CO2, exhaust emissions or full life-cycle climate impact.
+WATCH OUT: Do not associate ZEROe or a hydrogen-propelled aircraft with “zero emissions”. Hydrogen propulsion can avoid carbon emissions during flight, but aircraft manufacture, hydrogen production and non-CO2 effects such as water vapour, NOx where combustion is used, and noise remain relevant.
 
 KEY TAKEAWAY: Propulsion concepts must be compared at aircraft and energy-system level, not by one component metric.
     `),
@@ -588,7 +588,7 @@ KEY TAKEAWAY: Climate optimisation is a controlled trade-off process, not a univ
 
 Ground activities use fuel and electricity and affect local air quality, noise and turnaround reliability. Opportunities include fixed electrical ground power, pre-conditioned air, electric ground-support equipment, single-engine taxi where approved, towing concepts and reduced auxiliary-power-unit use.
 
-The environmental benefit depends on local electricity, equipment utilisation, charging strategy and the operational consequence. An electric asset that is unavailable during peak periods may lead teams back to diesel backup equipment.
+The delivered change in fuel use, emissions, local air pollutants and noise depends on the electricity source, equipment utilisation, charging strategy and operational consequence. An electric asset that is unavailable during peak periods may lead teams back to diesel backup equipment.
 
 ### Measurement plan
 
@@ -601,7 +601,7 @@ The environmental benefit depends on local electricity, equipment utilisation, c
 
 AVIATION CASE: Installing fixed ground power creates potential savings. Delivered savings require compatible stands, trained crews, reliable equipment and procedures that actually reduce APU use.
 
-KEY TAKEAWAY: Operational sustainability is the verified difference between a baseline and real-world performance, not the nominal capability of installed equipment.
+KEY TAKEAWAY: Operational improvement is the verified difference between a defined baseline and real-world performance, not the nominal capability of installed equipment.
     `),
   ],
 
@@ -713,7 +713,7 @@ Monitoring, reporting and verification converts operational activity into regula
 - independent verification evidence and corrective actions;
 - retention of supporting records.
 
-Environmental communication should use the same discipline. A claim must identify the subject, boundary, period, metric and basis. Offsetting, in-sector reductions, SAF life-cycle benefits and future technology ambitions should never be merged into a single unexplained “net-zero” statement.
+Environmental communication should use the same discipline. A claim must identify the subject, boundary, period, metric and basis. Offsetting, in-sector reductions, SAF life-cycle results and future technology ambitions must not be merged into one statement about the ATAG, IATA and ICAO aviation-sector objectives of net-zero carbon emissions by 2050.
 
 AVIATION CASE: A dashboard reports “30% lower emissions”. Review reveals that the number compares a SAF life-cycle estimate for one purchased volume with fossil fuel, not a 30% reduction in total flight emissions. The claim must be rewritten to match the actual boundary.
 
@@ -837,10 +837,10 @@ KEY TAKEAWAY: End-of-life performance is a value-chain result enabled by design 
   ],
 
   [M8]: [
-    lesson(M8, 1, "Net zero, absolute reductions and residual emissions", `
-## Define the destination precisely
+    lesson(M8, 1, "ATAG, IATA and ICAO 2050 targets: reductions and residual emissions", `
+## Name the third-party target precisely
 
-Net zero means balancing remaining anthropogenic greenhouse-gas emissions with removals after deep reductions. It is not the same as zero direct emissions, carbon neutrality for a limited activity or purchasing offsets without a reduction pathway.
+In this lesson, “net-zero carbon emissions by 2050” refers to aviation-sector objectives established by ATAG, IATA and ICAO. It is not presented as an Airbus corporate net-zero target. In general, net zero describes a balance between remaining anthropogenic greenhouse-gas emissions and removals after deep reductions; it is not the same as zero direct emissions, a limited carbon-neutrality claim or purchasing offsets without a reduction pathway.
 
 Aviation roadmaps should distinguish CO2 from non-CO2 effects, sector emissions from company inventories and in-sector action from removals outside the sector. The boundary determines what the target actually covers.
 
@@ -853,9 +853,9 @@ Aviation roadmaps should distinguish CO2 from non-CO2 effects, sector emissions 
 - avoid counting avoided emissions as reductions in the inventory;
 - report progress and setbacks consistently.
 
-AVIATION CASE: An aircraft technology may avoid direct fuel CO2 on a specific mission. A company-wide net-zero claim still requires upstream energy, manufacturing and other inventory sources to be assessed within the stated boundary.
+AVIATION CASE: An aircraft technology may avoid direct fuel CO2 on a specific mission. That result does not make the aircraft “zero emission” and does not establish a company-wide net-zero claim. Upstream energy, aircraft manufacture and non-CO2 effects remain outside such a narrow direct-CO2 result.
 
-WATCH OUT: “Net zero aviation” can refer to a global sector aspiration, a corporate target or a product concept. Never use the phrase without naming the subject and scope.
+WATCH OUT: Airbus guidance permits references to net zero when the third party is named. Use wording such as: Airbus seeks to contribute to the ATAG, IATA and ICAO aviation-sector objectives of “net-zero carbon emissions by 2050”. Do not describe this as Airbus's own net-zero target or attach it to a product.
 
 KEY TAKEAWAY: A target becomes credible when the audience can see what is reduced, what remains and how the balance will be achieved.
     `),
