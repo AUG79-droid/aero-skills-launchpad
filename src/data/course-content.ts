@@ -277,7 +277,7 @@ SAF can contribute to near-term emissions reduction because compatible blends ca
 ### Three separate questions
 
 - **Technical:** Is the fuel approved and fit for safe aircraft use?
-- **Sustainability:** Does the pathway meet environmental and social criteria?
+- **Eligibility and safeguards:** Does the pathway meet the environmental and social criteria of the named certification scheme?
 - **Accounting:** Can the claimed environmental attribute be traced and allocated without double counting?
 
 AVIATION CASE: A shipment may meet jet-fuel quality requirements yet fail a buyer's sustainability criteria because feedstock origin or chain-of-custody evidence is incomplete. Fuel quality certification and sustainability certification are related but different controls.
@@ -363,10 +363,10 @@ Scaling requires investment across production plants, renewable power, hydrogen,
 ### What teams can influence
 
 - engineering: compatibility, fuel-system knowledge and fleet readiness;
-- procurement: sustainability criteria, contracts and traceability;
+- procurement: named scheme-eligibility criteria, contracts and traceability;
 - operations: fuel logistics, quality and data capture;
 - finance: long-term offtake structures and risk allocation;
-- sustainability: life-cycle evidence, reporting and claim controls.
+- environmental assurance: life-cycle evidence, reporting and claim controls.
 
 AVIATION CASE: A long-term offtake agreement can help a producer finance a facility. The buyer should still define volume flexibility, certification requirements, life-cycle thresholds, delivery or book-and-claim rules and remedies if the pathway does not perform as expected.
 
@@ -864,7 +864,7 @@ KEY TAKEAWAY: A target becomes credible when the audience can see what is reduce
 
 Long-haul, short-haul, regional, cargo, defence and special-mission aircraft have different energy, payload and infrastructure needs. A realistic roadmap combines fleet renewal, aircraft and engine efficiency, operational improvement, SAF, emerging propulsion, infrastructure and policy.
 
-Levers interact. More efficient aircraft reduce the quantity of SAF or hydrogen needed. Cleaner electricity improves e-fuel and hydrogen performance. Better airspace reduces both cost and energy demand. The portfolio should therefore be modelled as an integrated system.
+Levers interact. More efficient aircraft reduce the quantity of SAF or hydrogen needed. Electricity with a lower quantified life-cycle greenhouse-gas intensity can reduce the well-to-wake emissions of e-fuel and hydrogen pathways. Better airspace reduces both cost and energy demand. The portfolio should therefore be modelled as an integrated system.
 
 ### Portfolio questions
 
