@@ -167,7 +167,7 @@ The same engine at the same thrust can produce different climate outcomes in dif
 
 ### Aerospace decision example
 
-An engine or fuel change reduces soot emissions. This may reduce the number of ice crystals in young contrails, but the final climate effect depends on contrail properties and atmospheric conditions. The claim should distinguish measured soot reduction from modelled climate benefit.
+An engine or fuel change reduces soot emissions. This may reduce the number of ice crystals in young contrails, but the final climate effect depends on contrail properties and atmospheric conditions. The claim should distinguish measured soot reduction from the modelled climate-effect estimate, including its method and uncertainty.
 
 WATCH OUT: Scientific uncertainty is not evidence of zero effect. Equally, a central research estimate should not be presented as a precise flight-level result.
 
@@ -176,7 +176,7 @@ KEY TAKEAWAY: Professional climate assessment keeps each causal step visible: em
     `
 ## Professional deep dive: design a contrail-avoidance experiment
 
-Persistent contrails require very cold and ice-supersaturated air. Forecasting those regions is difficult because humidity observations at cruise altitude are limited and weather models contain spatial and temporal uncertainty. A responsible trial therefore measures forecast skill as well as estimated climate benefit.
+Persistent contrails require very cold and ice-supersaturated air. Forecasting those regions is difficult because humidity observations at cruise altitude are limited and weather models contain spatial and temporal uncertainty. A responsible trial therefore measures forecast skill as well as the modelled change in climate effect against a defined baseline.
 
 ### Trial protocol
 
@@ -189,7 +189,7 @@ A 2,000-foot descent is predicted to avoid a high-impact region but adds 80 kg o
 ### Scale-up gates
 
 - forecast skill demonstrated over relevant seasons and regions;
-- net climate benefit remains positive under sensitivity analysis;
+- the modelled net climate-effect reduction remains positive under sensitivity analysis;
 - crew and dispatcher workload is acceptable;
 - air-traffic capacity and equity impacts are understood;
 - post-flight verification can detect systematic bias;
@@ -352,7 +352,7 @@ Meeting regulated and voluntary demand requires a portfolio rather than dependen
 - geographic diversification of production and delivery;
 - traceability and fraud controls;
 - clear separation of compliance and voluntary claims;
-- periodic review of feedstock and electricity sustainability.
+- periodic review of feedstock eligibility and the quantified life-cycle greenhouse-gas intensity of electricity.
 
 ### Airbus-relevant case
 
@@ -417,7 +417,7 @@ KEY TAKEAWAY: Aircraft environmental comparisons use complete propulsion and ene
     `
 ## Professional deep dive: calculate upstream credibility
 
-Electrolytic hydrogen is only as low-carbon as the electricity supporting it. Annual renewable certificates may not reflect whether clean generation was available when the electrolyser operated. Stronger assessments examine additional generation, geographic connection and temporal matching.
+Electrolytic hydrogen is only as low-carbon as the electricity supporting it. Annual renewable certificates may not reflect whether electricity from the stated renewable source was available when the electrolyser operated. Stronger assessments examine additional generation, geographic connection and temporal matching.
 
 ### Illustrative energy chain
 
