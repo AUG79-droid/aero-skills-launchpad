@@ -15,7 +15,7 @@ Review a SAF supply slide that shows only announced nameplate capacity. Rebuild 
   [`${M4}-lesson-3`]: `
 ## Workplace challenge: verify a hydrogen claim
 
-A supplier offers “100% green hydrogen” but provides no life-cycle value. Request hourly or contractual electricity evidence, electrolyser consumption, production location, water source, liquefaction or compression energy, transport, losses and verification method. Calculate a low and high carbon-intensity scenario. Draft contract acceptance criteria expressed in kilograms CO2-equivalent per kilogram hydrogen and evidence-retention requirements. The colour name may remain in communication, but the performance threshold governs procurement.
+A supplier offers “100% green hydrogen” but provides no life-cycle value. Treat the colour label as non-compliant claim wording. Request hourly or contractual electricity evidence, electrolyser consumption, production location, water source, liquefaction or compression energy, transport, losses and verification method. Calculate a low and high carbon-intensity scenario. Replace the colour label with contract acceptance criteria expressed in kilograms CO2-equivalent per kilogram hydrogen, including the boundary and evidence-retention requirements.
   `,
 
   [`${M4}-lesson-4`]: `
@@ -97,9 +97,9 @@ Finish by reconciling total aircraft input with components retained, parts reuse
   `,
 
   [`${M8}-lesson-1`]: `
-## Workplace challenge: red-team a net-zero slide
+## Workplace challenge: red-team a third-party sector target slide
 
-Circle every claim that lacks a boundary, baseline, year, evidence label or residual treatment. Rebuild the chart with gross emissions, physical reductions, eligible removals and other compensation shown as separate series. Add near-term milestones and the current gap. Ask a technical reviewer to identify what an ordinary reader might misunderstand. The aim is not weaker communication; it is a statement whose apparent meaning matches its accounting and physics.
+Circle every claim that lacks a named third party, boundary, baseline, year, evidence label or residual treatment. Rebuild the chart with gross emissions, physical reductions, eligible removals and other compensation shown as separate series. Identify the ATAG, IATA or ICAO objective being discussed and do not present it as an Airbus target or product property. Add near-term milestones and the current gap. Ask a technical reviewer to identify what an ordinary reader might misunderstand. The aim is a statement whose apparent meaning matches its accounting and physics.
   `,
 
   [`${M8}-lesson-2`]: `
