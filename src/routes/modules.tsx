@@ -119,17 +119,9 @@ function ModulesPage() {
               className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-[180ms] ease-out hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
             >
               <div className="relative flex h-36 items-center justify-center overflow-hidden border-b border-border bg-secondary">
-                {module.cover_image_url ? (
-                  <img
-                    src={module.cover_image_url}
-                    alt=""
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                  />
-                ) : (
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
-                    <BookOpen className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                )}
+                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary">
+                  <BookOpen className="h-5 w-5" aria-hidden="true" />
+                </div>
                 <span className="absolute left-3 top-3 rounded-sm bg-background/90 px-2 py-1 font-display text-[10px] uppercase tracking-widest text-foreground backdrop-blur-sm">
                   Module {String(module.order_index + 1).padStart(2, "0")}
                 </span>
