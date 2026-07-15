@@ -1402,7 +1402,7 @@ KEY TAKEAWAY: High-value circularity combines less input, fewer defects and veri
 
 ### Life extension is a circular strategy
 
-Aircraft and components can remain in service for decades because inspection, maintenance, repair and overhaul preserve safe function. Extending useful life avoids or delays new production and retains the energy, materials and skilled work already embedded in the product. The environmental benefit depends on additional service delivered, repair success and any fuel or efficiency consequence of retaining older equipment.
+Aircraft and components can remain in service for decades because inspection, maintenance, repair and overhaul preserve safe function. Extending useful life avoids or delays new production and retains the energy, materials and skilled work already embedded in the product. Any claimed reduction in material demand or life-cycle emissions depends on additional service delivered, repair success, the replacement counterfactual and any fuel-efficiency consequence of retaining older equipment.
 
 Circular maintenance is governed by airworthiness. A removed part is not reusable merely because it looks intact. Identity, configuration, life consumption, maintenance history, storage, inspection and approved release determine eligibility. Documentation is part of the product's value. Losing traceability can turn a technically functional component into unusable material.
 
