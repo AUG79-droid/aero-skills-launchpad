@@ -81,35 +81,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AeroSkills — Aviation Sustainability" },
+      { title: "AeroSkills — Aviation Environmental Performance" },
       {
         name: "description",
         content:
-          "Anonymous aviation sustainability learning covering SAF, hydrogen, climate impacts, CORSIA, operational efficiency and circular manufacturing.",
+          "Anonymous aviation environmental-performance learning covering SAF, hydrogen, climate impacts, CORSIA, operational efficiency and circular manufacturing.",
       },
-      { property: "og:title", content: "AeroSkills — Aviation Sustainability" },
+      { property: "og:title", content: "AeroSkills — Aviation Environmental Performance" },
       {
         property: "og:description",
         content:
-          "Anonymous aviation sustainability learning with no employee account or personal data collection.",
+          "Anonymous aviation environmental-performance learning with no employee account or personal data collection.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "AeroSkills — Aviation Sustainability" },
+      { name: "twitter:title", content: "AeroSkills — Aviation Environmental Performance" },
       {
         name: "twitter:description",
         content:
-          "Anonymous aviation sustainability learning with no employee account or personal data collection.",
-      },
-      {
-        property: "og:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/83470b8f-8d1b-4ca0-9860-2b9747bd36c9/id-preview-ed43129b--acc8900d-3d93-42f5-86de-2b479f24dae1.lovable.app-1783875172428.png",
-      },
-      {
-        name: "twitter:image",
-        content:
-          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/83470b8f-8d1b-4ca0-9860-2b9747bd36c9/id-preview-ed43129b--acc8900d-3d93-42f5-86de-2b479f24dae1.lovable.app-1783875172428.png",
+          "Anonymous aviation environmental-performance learning with no employee account or personal data collection.",
       },
     ],
     links: [
@@ -155,7 +145,7 @@ function RootComponent() {
             <header className="flex h-12 items-center gap-2 border-b border-border bg-surface px-4">
               <SidebarTrigger aria-label="Open navigation" />
               <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
-                AeroSkills / Aviation Sustainability
+                AeroSkills / Aviation Environmental Performance
               </span>
             </header>
             <main className="flex-1">
