@@ -30,7 +30,7 @@ A team compares three cleaning options. Option A has the lowest chemical consump
 - Identify which consequence is measured, estimated or presently unknown.
 - Name the department that must validate each non-environmental constraint.
 
-REFLECTION: If the proposed solution achieved its headline environmental benefit but doubled rework, would the project still be successful? What evidence would answer that question?
+REFLECTION: If the proposal achieved its headline reduction in solvent use but doubled rework, would the project still be successful? What evidence and life-cycle boundary would answer that question?
     `,
     `
 ## Professional deep dive: build a hotspot profile
@@ -239,7 +239,7 @@ A decision can proceed when uncertainty is high if it is reversible, monitored a
 
 A trial indicates that targeted trajectory changes could reduce climate impact. Management authorises a limited operational pilot rather than a fleet-wide target. The pilot has a defined duration, safety oversight, minimum forecast-confidence threshold and a review board. Expansion depends on net-benefit evidence, not on positive publicity from the first flights.
 
-REFLECTION: Which uncertainty in the proposed action could reverse the sign of its environmental benefit? That uncertainty deserves priority in the monitoring plan.
+REFLECTION: Which uncertainty could turn the action's claimed emissions or resource reduction into an increase under the defined boundary? That uncertainty deserves priority in the monitoring plan.
 
 KEY TAKEAWAY: Mature organisations do not hide uncertainty; they design governance that is proportionate to it.
     `,
@@ -271,19 +271,19 @@ KEY TAKEAWAY: The word SAF begins a due-diligence process; it does not end one.
     `
 ## Professional deep dive: test pathway scalability
 
-Pathway maturity and scalable potential are different. A mature pathway may have limited sustainable feedstock, while an emerging pathway may have a large theoretical resource base but major cost and infrastructure barriers.
+Pathway maturity and scalable potential are different. A mature pathway may have limited supply that meets the applicable sustainability criteria, while an emerging pathway may have a large theoretical resource base but major cost and infrastructure barriers.
 
 ### Resource screen
 
-For lipid pathways, examine the sustainable supply of used oils, fats and residues and the risk of fraud or displacement. For agricultural feedstocks, examine yields, land-use change, biodiversity, water, fertiliser and competing uses. For wastes, confirm the counterfactual treatment and whether classifying a material as waste changes incentives. For power-to-liquid, quantify renewable electricity, electrolyser capacity, hydrogen, captured carbon and conversion efficiency.
+For lipid pathways, examine the verified supply of used oils, fats and residues that meets the applicable criteria, together with fraud and displacement risks. For agricultural feedstocks, examine yields, land-use change, biodiversity, water, fertiliser and competing uses. For wastes, confirm the counterfactual treatment and whether classifying a material as waste changes incentives. For power-to-liquid, quantify the electricity source and its emissions, electrolyser capacity, hydrogen, captured carbon and conversion efficiency.
 
 ### Worked scale example
 
-An e-fuel proposal quotes very low life-cycle emissions using renewable electricity. At commercial scale, the electricity demand may be several times the energy contained in the final fuel because of conversion losses. The assessment must ask whether new low-carbon generation will be available at the required time and whether diverting existing clean power would increase grid emissions elsewhere.
+An e-fuel proposal quotes very low life-cycle emissions using renewable electricity. At commercial scale, the electricity demand may be several times the energy contained in the final fuel because of conversion losses. The assessment must ask whether additional generation with the stated emissions intensity will be available at the required time and whether diverting existing low-emissions power would increase grid emissions elsewhere.
 
 ### Decision exercise
 
-Compare two pathways for a long-term offtake. Score technical maturity, certified life-cycle performance, sustainable feedstock potential, electricity demand, regional infrastructure, price uncertainty and traceability. Then repeat the ranking under a high electricity-price scenario and a constrained feedstock scenario.
+Compare two pathways for a long-term offtake. Score technical maturity, certified life-cycle performance, feedstock supply that meets the named criteria, electricity demand, regional infrastructure, price uncertainty and traceability. Then repeat the ranking under a high electricity-price scenario and a constrained feedstock scenario.
 
 WATCH OUT: Global feedstock totals can double count resources already required by road transport, shipping, chemicals, heat or ecosystem restoration.
 
@@ -522,7 +522,7 @@ A fleet analysis estimates a recurring 0.3% fuel penalty associated with a parti
 - verification window after intervention;
 - guardrails for safety, quality and availability.
 
-AVIATION CASE: Washing an engine more frequently may improve performance, but the optimum interval depends on degradation rate, water and chemical use, wastewater control, labour and operational disruption. More frequent is not automatically more sustainable.
+AVIATION CASE: Washing an engine more frequently may improve performance, but the optimum interval depends on degradation rate, water and chemical use, wastewater control, labour and operational disruption. A shorter interval does not automatically produce lower life-cycle impacts.
 
 KEY TAKEAWAY: Eco-efficiency programmes should connect detected performance loss to a verified recovery, not report theoretical percentages.
     `,
@@ -552,7 +552,7 @@ WATCH OUT: Ranking individuals by low additional-fuel uplift can create unsafe o
 
 REFLECTION: How would you design a target that rewards better planning data rather than simply less fuel on board?
 
-KEY TAKEAWAY: The sustainable outcome comes from reducing planning error and avoidable system inefficiency while protecting operational judgement.
+KEY TAKEAWAY: The desired result comes from reducing planning error and avoidable system inefficiency while protecting operational judgement.
     `,
     `
 ## Professional deep dive: quantify the network, not one flight
@@ -902,9 +902,9 @@ KEY TAKEAWAY: High-quality aircraft retirement is a controlled industrial proces
 
   ...entries(M8, [
     `
-## Professional deep dive: test a net-zero statement
+## Professional deep dive: test a third-party sector target statement
 
-A net-zero statement should answer six questions: whose emissions, which greenhouse gases, which scopes or activities, what target year, what reduction pathway and what balancing mechanism for residuals. Without these elements, different audiences can interpret the same phrase in incompatible ways.
+When referring to the ATAG, IATA or ICAO objectives of net-zero carbon emissions by 2050, the statement should answer six questions: which third party, whose emissions, which greenhouse gases, which scopes or activities, what reduction pathway and what balancing mechanism for residuals. Without these elements, audiences can interpret the same phrase in incompatible ways. Airbus's contribution must not be rewritten as an Airbus net-zero target.
 
 ### Reduction before balancing
 
@@ -924,7 +924,7 @@ Claim: “This aircraft supports net-zero flight.” Questions follow: Is the st
 - quality criteria for residual balancing;
 - annual progress and methodology disclosure.
 
-KEY TAKEAWAY: Net zero is a governed balance after deep reduction, not a synonym for any lower-emission initiative.
+KEY TAKEAWAY: The ATAG, IATA and ICAO sector objectives concern a governed balance after deep reduction; they are not labels for an aircraft, service or individual lower-emission initiative.
     `,
     `
 ## Professional deep dive: model interacting levers
