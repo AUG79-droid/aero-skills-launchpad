@@ -7,6 +7,7 @@ import {
   Circle,
   ClipboardCheck,
   LockKeyhole,
+  ShieldCheck,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -140,7 +141,22 @@ function ModuleDetail() {
         <h1 className="mt-3 text-3xl leading-tight md:text-4xl">{mod.title}</h1>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">{mod.description}</p>
 
-        <div className="mt-6 rounded-lg border border-border bg-card p-4">
+        <div className="mt-6 flex items-start gap-3 rounded-lg border border-blue-500/25 bg-blue-500/5 p-4">
+          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+          <div>
+            <p className="font-display text-xs font-bold uppercase tracking-widest text-foreground">
+              Airbus anti-greenwashing context
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+              Statements identify their subject, boundary, comparator, timeframe and evidence status.
+              Phrases shown inside quotation marks as examples to review or avoid are deliberately
+              non-compliant and must not be reused as claims. Verify dated figures and linked sources
+              before using course content in external communication.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg border border-border bg-card p-4">
           <div className="mb-2 flex items-center justify-between text-xs text-muted-foreground">
             <span>
               {completedInModule} of {lessons.length} lessons completed on this device
