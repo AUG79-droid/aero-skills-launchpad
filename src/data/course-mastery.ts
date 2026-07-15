@@ -463,7 +463,7 @@ KEY TAKEAWAY: A credible SAF statement identifies what fuel, how much, which pat
 
 ### Resource efficiency matters
 
-Conversion processes lose energy. Direct electrification is generally more efficient where technically possible, while aviation's energy-density and range requirements make liquid fuel difficult to replace for many missions. This gives scarce sustainable molecules a strategic value. An aviation pathway should therefore be evaluated within the wider energy system, not only at the refinery gate.
+Conversion processes lose energy. Direct electrification is generally more efficient where technically possible, while aviation's energy-density and range requirements make liquid fuel difficult to replace for many missions. This gives scarce SAF feedstocks, low-emissions hydrogen and synthetic fuels a strategic value. An aviation pathway should therefore be evaluated within the wider energy system, not only at the refinery gate.
 
 Hydrogen demand links SAF scale-up to the hydrogen economy. For e-fuels, both hydrogen and captured carbon must meet environmental criteria. Biogenic CO2, direct-air-captured CO2 and fossil point-source CO2 have different implications. Carbon recycled from a fossil source may delay release but does not necessarily create a closed atmospheric cycle.
 
@@ -592,9 +592,9 @@ An airline has memoranda covering 600,000 tonnes, conditional offtake contracts 
 
 Scenario analysis tests delay in one large facility, feedstock price shock and lower-than-planned conversion yield. Diversification can reduce risk but may raise transaction and assurance complexity. Efficiency measures reduce the absolute SAF volume and cost required for a given share, showing why fleet and operational action complement fuel policy.
 
-### Economics and the green premium
+### Economics and the incremental fuel cost
 
-SAF generally costs more than fossil jet fuel because sustainable resources and production assets are scarce and immature. The premium can be shared through regulation, long-term offtake, incentives, corporate demand and financing. Cost analysis should use energy-equivalent quantity, include logistics and certification, and separate market premium from environmental value.
+SAF generally costs more than fossil jet fuel because eligible feedstocks, electricity with sufficiently low life-cycle emissions and production assets are scarce or immature. The incremental cost can be shared through regulation, long-term offtake, incentives, corporate demand and financing. Cost analysis should use energy-equivalent quantity, include logistics and certification, and keep price separate from the certified life-cycle greenhouse-gas result.
 
 ### Roadmap exercise
 
@@ -1476,17 +1476,17 @@ KEY TAKEAWAY: End-of-life value is protected by early planning, configuration da
 
   ...entries(M8, [
     `
-## Extended learning unit: what net-zero aviation means
+## Extended learning unit: interpreting ATAG, IATA and ICAO 2050 objectives
 
 ### Learning objectives
 
-- Deconstruct a net-zero statement into boundary, pathway and residual balance.
+- Deconstruct a third-party sector target statement into boundary, pathway and residual balance.
 - Distinguish gross reduction, neutralisation, compensation and avoided emissions.
 - Review an aircraft or corporate claim for technical accuracy.
 
 ### A target needs six definitions
 
-A net-zero claim should define the entity or system, greenhouse gases, emission scopes, target year, reduction pathway and treatment of residual emissions. For aviation it should also address whether the boundary includes only flight CO2 or life-cycle fuel emissions, non-CO2 effects, manufacturing, airports and supply chain. Different boundaries can support different valid analyses, but they must not share an unexplained headline.
+Airbus guidance allows reference to net zero when the third party that established the target is named. In this course, the relevant references are the ATAG, IATA and ICAO aviation-sector objectives of net-zero carbon emissions by 2050. Any statement should define the third party, entity or system, greenhouse gases, emission scopes, target year, reduction pathway and treatment of residual emissions. It should also address whether the boundary includes only flight CO2 or life-cycle fuel emissions, non-CO2 effects, manufacturing, airports and supply chain.
 
 Gross emissions are physical emissions before offsets or removals. Deep reduction changes the energy, technology or activity creating them. **Neutralisation** generally refers to counterbalancing residual emissions with removals, while compensation can include avoided-emission credits depending on framework. Avoided emissions compare with a hypothetical alternative and are not subtracted automatically from a company's inventory.
 
@@ -1498,7 +1498,7 @@ Commercial aviation transition involves efficient aircraft, operations, airspace
 
 ### Claim review case
 
-“This aircraft enables net-zero flight” leaves essential conditions unstated. Review asks: on which mission; using which fuel or energy; what life-cycle intensity; what non-CO2 treatment; which residuals; and is the statement current performance or a future scenario? A defensible version might say that the aircraft is designed to reduce fuel burn relative to a named predecessor and is compatible with approved SAF blends, while sector net zero requires additional fuel, infrastructure and policy measures.
+“This aircraft enables net-zero flight” is not acceptable wording: it attaches a third-party sector target to a product and leaves essential conditions unstated. A defensible alternative identifies a measured or modelled fuel-burn difference against a named predecessor, mission and method, and states approved SAF compatibility separately. Airbus may then state, as a separate sentence, that it seeks to contribute to the ATAG, IATA and ICAO aviation-sector objectives of net-zero carbon emissions by 2050.
 
 ### Gross-and-net example
 
@@ -1515,7 +1515,7 @@ Baseline gross emissions are 1 million tonnes. Efficiency and fuel actions reduc
 - annual progress and correction mechanism;
 - wording matched to measured, contracted or projected evidence.
 
-WATCH OUT: “Net zero,” “carbon neutral,” “zero emission” and “lower carbon” are not synonyms. Use the narrowest term the evidence supports.
+WATCH OUT: Do not apply “net zero,” “carbon neutral” or “zero emission” to an Airbus aircraft, service or programme. Name ATAG, IATA or ICAO when discussing their sector objectives, and use a quantified comparator and boundary for any lower-emissions statement.
     `,
     `
 ## Extended learning unit: integrating the decarbonisation levers
@@ -1528,7 +1528,7 @@ WATCH OUT: “Net zero,” “carbon neutral,” “zero emission” and “lowe
 
 ### Why percentages cannot simply be added
 
-Each lever acts on a changing baseline. Fleet renewal reduces fuel to which operational improvements and SAF shares apply. Efficiency reduces sustainable-fuel volume required for the same activity. New propulsion shifts demand from liquid fuel to electricity or hydrogen and changes infrastructure. Traffic and mission mix influence every absolute result.
+Each lever acts on a changing baseline. Fleet renewal reduces fuel to which operational improvements and SAF shares apply. Efficiency reduces SAF volume required for the same activity. New propulsion shifts demand from liquid fuel to electricity or hydrogen and changes infrastructure. Traffic and mission mix influence every absolute result.
 
 Apply measures in a defined sequence or integrated model. Start with activity and fleet. Apply avoidable activity or network changes where in scope. Apply aircraft and operational efficiency. Allocate fuel pathways to compatible fleet and locations. Add new propulsion according to turnover and mission. Calculate residual CO2 and treat non-CO2 separately. Only then apply residual balancing according to the target framework.
 
@@ -1544,7 +1544,7 @@ SAF depends on feedstocks, electricity, hydrogen, plants and certification. Hydr
 
 ### Scenario architecture
 
-Build at least three pathways: central; delayed technology and infrastructure; constrained sustainable energy. Identify no-regret actions common to all, such as data quality, efficiency, material productivity and infrastructure studies. Test traffic, fuel price, electricity availability, fleet life and policy.
+Build at least three pathways: central; delayed technology and infrastructure; constrained supply of energy meeting the specified life-cycle threshold. Identify no-regret actions common to all, such as data quality, efficiency, material productivity and infrastructure studies. Test traffic, fuel price, electricity availability, fleet life and policy.
 
 ### Applied model check
 
@@ -1565,7 +1565,7 @@ KEY TAKEAWAY: Integration replaces a collection of attractive percentages with o
 
 A forecast estimates what is likely. A scenario explores a coherent future that could occur. Scenario planning is useful when fuel supply, technology maturity, traffic, regulation and energy systems are deeply uncertain. The goal is not to select the most attractive line; it is to expose vulnerabilities and decisions.
 
-Choose two or three high-impact uncertainties, such as synthetic-fuel scale and zero-emission aircraft readiness. Build internally consistent narratives. Quantify implications for fuel, infrastructure, capital and residual emissions. Avoid changing every variable independently without explaining relationships.
+Choose two or three high-impact uncertainties, such as synthetic-fuel scale and hydrogen-propelled aircraft readiness. Build internally consistent narratives. Quantify implications for fuel, infrastructure, capital and residual emissions. Avoid changing every variable independently without explaining relationships.
 
 ### Decision gates
 
