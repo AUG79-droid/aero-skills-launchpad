@@ -156,7 +156,7 @@ The team calculates a mass-related operational benefit under low, central and hi
 
 Option A costs €20,000 more and saves an estimated 40–80 tonnes CO2-equivalent over its life. Option B has lower climate benefit but avoids a substance of very high concern. Do not calculate a winner immediately. First identify whether the substance criterion is a mandatory control, whether exposure and substitution requirements have been assessed, and whether the climate ranges overlap. Then define what further evidence has the greatest decision value.
 
-REFLECTION: Which assumption in a recent sustainability proposal, if wrong, would reverse the recommendation? That assumption should be monitored as a decision risk.
+REFLECTION: Which assumption in a recent environmental proposal, if wrong, would reverse the recommendation? That assumption should be monitored as a decision risk.
     `,
     `
 ## Extended learning unit: turning ambition into controlled performance
@@ -189,7 +189,7 @@ Each action has an accountable owner and evidence required for closure. A projec
 
 Create a mini-charter for one environmental issue with: problem statement, boundary, baseline confidence, 12–24 month target, three causal actions, one leading indicator per action, outcome KPI, guardrail, owner, resources, validation method and review frequency. Add a stop rule describing when adverse quality, safety or environmental evidence pauses the project.
 
-KEY TAKEAWAY: Professional sustainability is ordinary management discipline applied to environmental outcomes—clear ownership, controlled processes, timely evidence and corrective action.
+KEY TAKEAWAY: Professional environmental management applies ordinary management discipline to environmental outcomes—clear ownership, controlled processes, timely evidence and corrective action.
     `,
   ]),
 
@@ -417,7 +417,7 @@ Most SAF used today is **drop-in** fuel. After production and blending according
 
 At combustion, SAF releases CO2. The climate advantage is assessed across the life cycle because much of the carbon was recently taken from the atmosphere through biomass growth or captured as part of a synthetic pathway, rather than extracted as additional fossil carbon. The result must include feedstock production or collection, processing, hydrogen and electricity, transport, conversion yield and co-products. Land-use change can be material for some biological feedstocks.
 
-### Sustainability is more than carbon
+### SAF eligibility covers more than carbon
 
 Feedstock selection can affect biodiversity, soil, water, food systems, labour and land rights. Waste and residue labels require verification: a material treated as waste in one jurisdiction may have an existing productive use. Diverting it can create indirect demand elsewhere. Certification provides a controlled framework, but procurement teams must still understand scheme scope, batch documentation and the claim being made.
 
@@ -475,11 +475,11 @@ For a power-to-liquid proposal, the screen quantifies annual electricity, electr
 
 ### Technology comparison exercise
 
-Create a table for HEFA, Fischer–Tropsch, alcohol-to-jet and power-to-liquid with: eligible feedstocks, technology maturity, main resource constraint, hydrogen need, electricity sensitivity, likely co-products, infrastructure fit and key sustainability risk. Do not assign one ranking. Instead, write the conditions under which each pathway is attractive.
+Create a table for HEFA, Fischer–Tropsch, alcohol-to-jet and power-to-liquid with: eligible feedstocks, technology maturity, main resource constraint, hydrogen need, electricity sensitivity, likely co-products, infrastructure fit and key environmental or social risk. Do not assign one ranking. Instead, write the conditions under which each pathway is attractive.
 
 ### Scale-up questions
 
-- Can feedstock supply grow without degrading sustainability?
+- Can feedstock supply grow while meeting the named environmental and social criteria and avoiding material impact transfer?
 - Are process energy and hydrogen low-carbon in practice?
 - What fraction of output is jet fuel rather than other products?
 - What certification and blending steps remain?
@@ -910,7 +910,7 @@ Bad target: “Reduce captain's discretionary fuel 15%.” Better target: “Imp
 
 Build a dashboard with planned and actual taxi, trip, holding and arrival fuel. Show median, 10th and 90th percentiles; separate normal and disrupted days. Add diversion, go-around, minimum-fuel and crew-feedback indicators. For one systematic bias, define the data or process change that could remove it and how performance will be checked after implementation.
 
-WATCH OUT: Fuel-policy sustainability is achieved by reducing uncertainty and avoidable inefficiency, never by treating safety reserves as environmental waste.
+WATCH OUT: A fuel-policy emissions claim is credible only when uncertainty and avoidable inefficiency are reduced without treating safety reserves as environmental waste.
     `,
     `
 ## Extended learning unit: airspace and trajectory efficiency
