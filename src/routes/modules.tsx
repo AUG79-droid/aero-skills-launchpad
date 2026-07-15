@@ -13,16 +13,16 @@ import { listModulesWithLessonCount } from "@/lib/modules";
 export const Route = createFileRoute("/modules")({
   head: () => ({
     meta: [
-      { title: "Learning Modules — AeroSkills Aviation Sustainability" },
+      { title: "Learning Modules — AeroSkills Aviation Environmental Performance" },
       {
         name: "description",
         content:
           "Explore eight anonymous learning modules covering sustainable aviation fuels, hydrogen, climate impacts, regulation, operations and circular manufacturing.",
       },
-      { property: "og:title", content: "AeroSkills Aviation Sustainability" },
+      { property: "og:title", content: "AeroSkills Aviation Environmental Performance" },
       {
         property: "og:description",
-        content: "Anonymous aviation sustainability learning for employees.",
+        content: "Anonymous aviation environmental-performance learning for employees.",
       },
     ],
   }),
@@ -75,11 +75,11 @@ function ModulesPage() {
         <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
           Learning catalogue
         </span>
-        <h1 className="mt-2 text-3xl leading-tight md:text-4xl">Aviation Sustainability</h1>
+        <h1 className="mt-2 text-3xl leading-tight md:text-4xl">Aviation Environmental Performance</h1>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          Eight practical modules covering the technologies, regulations and operational levers
-          shaping more sustainable aviation. No account, name, email address or employee identifier
-          is required.
+          Eight practical modules covering the technologies, regulations and operational levers used
+          to assess and reduce defined aviation environmental impacts. No account, name, email
+          address or employee identifier is required.
         </p>
 
         <div className="mt-6 flex flex-col gap-4 rounded-lg border border-primary/20 bg-accent p-4 sm:flex-row sm:items-center sm:justify-between">
