@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * AeroSkills Sustainability — minimal-mono design system
+ * AeroSkills Environmental Performance — minimal-mono design system
  * Space Mono for display, Inter for body. Fine borders over heavy shadows.
  * Font files are loaded via <link> tags in src/routes/__root.tsx.
  */
@@ -68,9 +68,9 @@
   --foreground: #18181b;
   --text-secondary: #71717a;
   --muted: #f4f4f5;
-  --accent-color: #2f6844;
+  --accent-color: #005eb8;
   --accent-foreground: #ffffff;
-  --accent-soft: #e8f0ea;
+  --accent-soft: #eaf2f8;
 }
 
 .dark {
@@ -80,9 +80,9 @@
   --foreground: #fafafa;
   --text-secondary: #a1a1aa;
   --muted: #1c1c20;
-  --accent-color: #4f9d6d;
+  --accent-color: #66b2ff;
   --accent-foreground: #0b0b0d;
-  --accent-soft: #1a2a20;
+  --accent-soft: #10263b;
 }
 
 @layer base {
