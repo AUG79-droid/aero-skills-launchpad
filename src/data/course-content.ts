@@ -34,12 +34,12 @@ const M8 = "ead97f8a-17ee-4635-bdae-d430a9a08365";
 
 const baseLessonsByModule: Record<string, CourseLesson[]> = {
   [M1]: [
-    lesson(M1, 1, "Sustainability as an aviation systems challenge", `
+    lesson(M1, 1, "Environmental performance as an aviation systems challenge", `
 ## Why isolated solutions fail
 
 Aviation connects aircraft design, propulsion, energy supply, airports, air traffic management, manufacturing, maintenance, passenger demand and public policy. A change in one part of this system can create benefits or burdens elsewhere. Reducing aircraft mass can cut fuel burn in operation, for example, but the alternative material may require more energy to produce, be harder to repair or have fewer end-of-life routes.
 
-Professional sustainability work therefore starts with three questions: **what system is being changed, which impacts are relevant and who controls each decision?** Climate change is central, but it is not the only environmental dimension. Noise, local air quality, water, waste, hazardous substances, land use, biodiversity and resource depletion can also be material.
+Professional environmental management therefore starts with three questions: **what system is being changed, which impacts are relevant and who controls each decision?** Climate change is central, but it is not the only environmental dimension. Noise, local air quality, water, waste, hazardous substances, land use, biodiversity and resource depletion can also be material.
 
 ### A practical decision frame
 
@@ -52,7 +52,7 @@ Professional sustainability work therefore starts with three questions: **what s
 
 AVIATION CASE: Replacing a coating may reduce volatile organic compound emissions at a plant. The full decision must also assess corrosion protection, worker exposure, rework, curing energy, component life and approved-process requirements. The environmentally preferable option is the one that performs best across the relevant system while maintaining safety and airworthiness.
 
-KEY TAKEAWAY: Sustainability is not a separate layer added after an engineering decision. It is a set of environmental criteria integrated into the same decision, with boundaries and trade-offs made explicit.
+KEY TAKEAWAY: Environmental performance is not a separate layer added after an engineering decision. Relevant criteria must be integrated into the same decision, with boundaries and trade-offs made explicit.
 
 ### Evidence base
 
@@ -129,7 +129,7 @@ REFLECTION: What would make your preferred option cease to be the best option? N
 KEY TAKEAWAY: A professional recommendation explains both the benefit and the conditions under which that benefit is expected.
     `),
     lesson(M1, 5, "From ambition to controlled action", `
-## Turning sustainability into execution
+## Turning environmental ambition into execution
 
 An ambition becomes operational only when it is translated into a controlled objective. Teams need a baseline, a specific outcome, an owner, resources, milestones, dependencies, a KPI and a verification method. Environmental management systems such as ISO 14001 reinforce this logic through risk-based planning, operational control, competence, monitoring and continual improvement.
 
@@ -147,7 +147,7 @@ AVIATION CASE: A project to improve metal circularity can include segregated col
 - Avoid claiming that one initiative makes an aircraft, site or company “sustainable”.
 - Keep the evidence available for review.
 
-KEY TAKEAWAY: The strongest sustainability message is a controlled description of what changed, what was measured and what remains to be solved.
+KEY TAKEAWAY: The strongest environmental message is a controlled description of what changed, what was measured and what remains to be solved.
 
 REFLECTION: Rewrite one current team ambition as a controlled objective with an owner, baseline, deadline and verification method.
     `),
@@ -351,7 +351,7 @@ AVIATION CASE: A corporate customer may fund SAF through a book-and-claim platfo
 
 WATCH OUT: A certificate is not sufficient if the underlying scheme allows overlapping claims or weak additionality statements.
 
-KEY TAKEAWAY: Traceability connects a sustainability claim to a controlled quantity, pathway and owner.
+KEY TAKEAWAY: Traceability connects a life-cycle greenhouse-gas claim to a controlled quantity, pathway and owner.
     `),
     lesson(M3, 5, "Scaling SAF under ReFuelEU Aviation", `
 ## From voluntary projects to regulated demand
@@ -520,7 +520,7 @@ KEY TAKEAWAY: Protecting aircraft condition is a climate action because it prese
 
 Additional mass requires additional fuel, and carrying extra fuel itself creates a fuel-burn penalty. Safe fuel planning must always meet regulatory, company and operational requirements, but better information can reduce avoidable conservatism and unnecessary contingency.
 
-High-quality planning uses current aircraft performance, route and weather data, expected air-traffic restrictions, alternate requirements and operational experience. Decisions must preserve captain authority and resilience; sustainability targets must never pressure crews to compromise safety margins.
+High-quality planning uses current aircraft performance, route and weather data, expected air-traffic restrictions, alternate requirements and operational experience. Decisions must preserve captain authority and resilience; fuel- or emissions-reduction targets must never pressure crews to compromise safety margins.
 
 ### Control principles
 
@@ -559,7 +559,7 @@ AVIATION CASE: Allowing a flight to use a more direct route may save fuel for th
 
 - [SESAR ALBATROSS demonstration report](https://www.sesarju.eu/sites/default/files/documents/solution/SolALBATROSS-RAD%20Demo%20Report%20TRL6.pdf)
 
-KEY TAKEAWAY: Airspace sustainability is achieved through collaborative network optimisation, not isolated route shortening.
+KEY TAKEAWAY: Lower network fuel use is achieved through collaborative optimisation, not isolated route shortening.
     `),
     lesson(M5, 4, "Climate-optimised operations and contrail avoidance", `
 ## Optimising beyond fuel burn
