@@ -96,6 +96,8 @@ const quizTextReplacements: Record<string, string> = {
     "Foundations of Aviation Environmental Performance — Knowledge Check",
   "Roadmap to Net-Zero Aviation — Knowledge Check":
     "Aviation Emissions-Reduction Roadmap to 2050 — Knowledge Check",
+  "Hydrogen Aviation and the ZEROe Programme — Knowledge Check":
+    "Hydrogen-Propelled Aviation and the ZEROe R&D Programme — Knowledge Check",
   "Why is aviation sustainability best treated as a systems challenge?":
     "Why should aviation environmental performance be treated as a systems challenge?",
   "Because every sustainability decision has a single obvious answer":
@@ -110,6 +112,13 @@ const quizTextReplacements: Record<string, string> = {
     "How should a future emissions or resource-reduction estimate be communicated?",
   "Whenever it is called green, regardless of production":
     "Whenever it is given an undefined colour label, regardless of production",
+  "When can hydrogen offer strong climate benefits?":
+    "When can a hydrogen-propelled aircraft have lower life-cycle greenhouse-gas emissions than a defined kerosene reference?",
+  "When production and liquefaction use genuinely low-carbon energy and the full system is assessed":
+    "When production and liquefaction use energy meeting a quantified life-cycle threshold and the full system is compared with a defined reference",
+  "What determines the pace of hydrogen-aircraft deployment?":
+    "What determines the pace of future hydrogen-propelled aircraft deployment?",
+  "Fuel colour": "An undefined fuel colour label",
   "It guarantees zero emissions": "It removes the need to measure any remaining emissions",
   "Why does net-zero aviation require a portfolio of levers?":
     "Why do the ATAG, IATA and ICAO aviation-sector objectives of net-zero carbon emissions by 2050 require a portfolio of levers?",
