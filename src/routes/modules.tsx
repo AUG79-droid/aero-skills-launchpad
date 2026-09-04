@@ -10,15 +10,18 @@ import { useEffect, useMemo, useState } from "react";
 import { clearLocalProgress, readLocalProgress } from "@/lib/local-progress";
 import { listModulesWithLessonCount } from "@/lib/modules";
 
+const assetUrl = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 const moduleCovers = [
-  "/module-covers/module-01-systems.webp",
-  "/module-covers/module-02-climate.webp",
-  "/module-covers/module-03-saf.webp",
-  "/module-covers/module-04-hydrogen-rd.webp",
-  "/module-covers/module-05-operations.webp",
-  "/module-covers/module-06-regulation.webp",
-  "/module-covers/module-07-circularity.webp",
-  "/module-covers/module-08-roadmap.webp",
+  assetUrl("module-covers/module-01-systems.webp"),
+  assetUrl("module-covers/module-02-climate.webp"),
+  assetUrl("module-covers/module-03-saf.webp"),
+  assetUrl("module-covers/module-04-hydrogen-rd.webp"),
+  assetUrl("module-covers/module-05-operations.webp"),
+  assetUrl("module-covers/module-06-regulation.webp"),
+  assetUrl("module-covers/module-07-circularity.webp"),
+  assetUrl("module-covers/module-08-roadmap.webp"),
 ] as const;
 
 export const Route = createFileRoute("/modules")({
