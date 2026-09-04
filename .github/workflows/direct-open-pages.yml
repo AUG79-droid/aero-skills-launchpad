@@ -25,38 +25,22 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node
-        if: ${{ hashFiles('package.json') != '' }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
-      - name: Prepare site
+      - name: Build static SPA for GitHub Pages
         shell: bash
         run: |
-          set +e
+          set -euo pipefail
+          npm install
+          npm run build -- --base=/aero-skills-launchpad/
+          test -f .output/public/_shell.html
           rm -rf _site
           mkdir -p _site
-          BUILT=0
-          if [ -f package.json ]; then
-            npm ci || npm install
-            if node -e "const p=require('./package.json'); process.exit((p.dependencies&&p.dependencies.vite)||(p.devDependencies&&p.devDependencies.vite)?0:1)"; then
-              npm run build -- --base=./ && BUILT=1
-            else
-              npm run build && BUILT=1
-            fi
-          fi
-          if [ "$BUILT" = "1" ] && [ -d dist ]; then
-            rsync -a dist/ _site/
-          elif [ "$BUILT" = "1" ] && [ -d build ]; then
-            rsync -a build/ _site/
-          elif [ "$BUILT" = "1" ] && [ -d out ]; then
-            rsync -a out/ _site/
-          else
-            rsync -a --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='_site' ./ _site/
-          fi
-          if [ ! -f _site/index.html ]; then
-            printf '<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:Arial;background:#081525;color:#eef6ff;padding:30px}</style><h1>Repository available</h1>' > _site/index.html
-          fi
+          rsync -a .output/public/ _site/
+          cp _site/_shell.html _site/index.html
+          cp _site/_shell.html _site/404.html
           touch _site/.nojekyll
 
       - name: Configure Pages
