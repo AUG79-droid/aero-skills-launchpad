@@ -1,4 +1,10 @@
 import { expandedLessonsByModule } from "@/data/course-content";
+import {
+  lessonLocalizationEs,
+  moduleLocalizationEs,
+  quizLocalizationEs,
+} from "@/data/course-content-es.generated";
+import type { HubLanguage } from "@/lib/language";
 import { supabase } from "@/integrations/supabase/client";
 
 export type ModuleRow = {
@@ -107,7 +113,8 @@ const quizTextReplacements: Record<string, string> = {
   "Which example is an actionable sustainability objective?":
     "Which example is an actionable environmental objective?",
   "Become greener soon": "Use an unspecified positive environmental slogan",
-  "Support sustainability whenever possible": "Support environmental goals without defining an action",
+  "Support sustainability whenever possible":
+    "Support environmental goals without defining an action",
   "How should a future environmental benefit be communicated?":
     "How should a future emissions or resource-reduction estimate be communicated?",
   "Whenever it is called green, regardless of production":
@@ -199,12 +206,12 @@ export async function getModuleDetail(moduleId: string) {
       questions: typedQuestions.map((question) => ({
         ...(question as Omit<QuizQuestionRow, "options">),
         question: replaceQuizText(question.question),
-        options: ((options ?? []) as QuizOptionRow[]).filter(
-          (option) => option.question_id === question.id,
-        ).map((option) => ({
-          ...option,
-          option_text: replaceQuizText(option.option_text),
-        })) as QuizOptionRow[],
+        options: ((options ?? []) as QuizOptionRow[])
+          .filter((option) => option.question_id === question.id)
+          .map((option) => ({
+            ...option,
+            option_text: replaceQuizText(option.option_text),
+          })) as QuizOptionRow[],
       })),
     };
   }
@@ -233,4 +240,57 @@ export async function gradeQuiz(
     correctCount: Number(data?.correct_count ?? 0),
     total: Number(data?.total ?? 0),
   };
+}
+
+export function localizeModuleList<
+  T extends Array<ModuleRow & { lessonCount: number; lessonIds: string[] }>,
+>(modules: T, language: HubLanguage): T {
+  if (language !== "es") return modules;
+  return modules.map((module) => ({
+    ...module,
+    ...(moduleLocalizationEs[module.id as keyof typeof moduleLocalizationEs] ?? {}),
+  })) as T;
+}
+
+export function localizeModuleDetail<
+  T extends { module: ModuleRow; lessons: LessonRow[]; quiz: QuizRow | null },
+>(detail: T, language: HubLanguage): T {
+  if (language !== "es") return detail;
+  const moduleText = moduleLocalizationEs[detail.module.id as keyof typeof moduleLocalizationEs];
+  const polishSpanishContent = (content: string) =>
+    content
+      .replaceAll("WATCH OUT:", "ATENCIÓN:")
+      .replaceAll("KEY TAKEAWAY:", "IDEA CLAVE:")
+      .replaceAll("REFLECTION:", "REFLEXIÓN:")
+      .replaceAll("AVIATION CASE:", "CASO DE AVIACIÓN:")
+      .replaceAll("CASE STUDY:", "CASO PRÁCTICO:")
+      .replaceAll("Evidence base", "Base de evidencia")
+      .replaceAll("Decision lab", "Laboratorio de decisión")
+      .replaceAll("Decision record", "Registro de decisión");
+  return {
+    ...detail,
+    module: { ...detail.module, ...(moduleText ?? {}) },
+    lessons: detail.lessons.map((lesson) => ({
+      ...lesson,
+      ...(lessonLocalizationEs[lesson.id as keyof typeof lessonLocalizationEs] ?? {}),
+      content: polishSpanishContent(
+        lessonLocalizationEs[lesson.id as keyof typeof lessonLocalizationEs]?.content ??
+          lesson.content,
+      ),
+    })),
+    quiz: detail.quiz
+      ? {
+          ...detail.quiz,
+          title: quizLocalizationEs[detail.quiz.title] ?? detail.quiz.title,
+          questions: detail.quiz.questions.map((question) => ({
+            ...question,
+            question: quizLocalizationEs[question.question] ?? question.question,
+            options: question.options.map((option) => ({
+              ...option,
+              option_text: quizLocalizationEs[option.option_text] ?? option.option_text,
+            })),
+          })),
+        }
+      : null,
+  } as T;
 }

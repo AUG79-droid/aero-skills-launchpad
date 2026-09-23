@@ -1,17 +1,12 @@
-import {
-  createFileRoute,
-  Link,
-  Outlet,
-  useRouterState,
-} from "@tanstack/react-router";
+import { createFileRoute, Outlet, useRouterState } from "@tanstack/react-router";
 import { ArrowUpRight, BookOpen, RotateCcw, ShieldCheck } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { clearLocalProgress, readLocalProgress } from "@/lib/local-progress";
-import { listModulesWithLessonCount } from "@/lib/modules";
+import { useHubLanguage, withHubLanguage } from "@/lib/language";
+import { listModulesWithLessonCount, localizeModuleList } from "@/lib/modules";
 
-const assetUrl = (path: string) =>
-  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
 const moduleCovers = [
   assetUrl("module-covers/module-01-systems.webp"),
@@ -62,7 +57,11 @@ function ModulesRoute() {
 }
 
 function ModulesPage() {
-  const modules = Route.useLoaderData() as Awaited<ReturnType<typeof listModulesWithLessonCount>>;
+  const language = useHubLanguage();
+  const sourceModules = Route.useLoaderData() as Awaited<
+    ReturnType<typeof listModulesWithLessonCount>
+  >;
+  const modules = localizeModuleList(sourceModules, language);
   const [completedLessonIds, setCompletedLessonIds] = useState<string[]>([]);
   const [isHydrated, setIsHydrated] = useState(false);
 
@@ -75,7 +74,9 @@ function ModulesPage() {
 
   const handleClearProgress = () => {
     const confirmed = window.confirm(
-      "Delete all learning progress stored in this browser? This action cannot be undone.",
+      language === "es"
+        ? "¿Eliminar todo el progreso de aprendizaje guardado en este navegador? Esta acción no se puede deshacer."
+        : "Delete all learning progress stored in this browser? This action cannot be undone.",
     );
     if (!confirmed) return;
 
@@ -87,23 +88,30 @@ function ModulesPage() {
     <div className="mx-auto max-w-6xl px-6 py-10 md:px-10">
       <header className="mb-8 border-b border-border pb-8">
         <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
-          Learning catalogue
+          {language === "es" ? "Catálogo de aprendizaje" : "Learning catalogue"}
         </span>
-        <h1 className="mt-2 text-3xl leading-tight md:text-4xl">Aviation Environmental Performance</h1>
+        <h1 className="mt-2 text-3xl leading-tight md:text-4xl">
+          {language === "es"
+            ? "Rendimiento ambiental de la aviación"
+            : "Aviation Environmental Performance"}
+        </h1>
         <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          Eight practical modules covering the technologies, regulations and operational levers used
-          to assess and reduce defined aviation environmental impacts. No account, name, email
-          address or employee identifier is required.
+          {language === "es"
+            ? "Ocho módulos prácticos sobre tecnologías, normativa y palancas operativas para evaluar y reducir impactos ambientales definidos de la aviación. No se requiere cuenta, nombre, correo electrónico ni identificador de empleado."
+            : "Eight practical modules covering the technologies, regulations and operational levers used to assess and reduce defined aviation environmental impacts. No account, name, email address or employee identifier is required."}
         </p>
 
         <div className="mt-6 flex flex-col gap-4 rounded-lg border border-primary/20 bg-accent p-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">
             <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
             <div>
-              <p className="text-sm font-medium">Anonymous by design</p>
+              <p className="text-sm font-medium">
+                {language === "es" ? "Anónimo por diseño" : "Anonymous by design"}
+              </p>
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                Your progress stays only in this browser. It is not linked to an account and is not
-                sent to the training database.
+                {language === "es"
+                  ? "Tu progreso permanece únicamente en este navegador. No está vinculado a una cuenta ni se envía a la base de datos de formación."
+                  : "Your progress stays only in this browser. It is not linked to an account and is not sent to the training database."}
               </p>
             </div>
           </div>
@@ -113,7 +121,7 @@ function ModulesPage() {
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-xs font-medium transition-colors hover:border-primary hover:text-primary"
           >
             <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
-            Clear local progress
+            {language === "es" ? "Borrar progreso local" : "Clear local progress"}
           </button>
         </div>
       </header>
@@ -127,10 +135,9 @@ function ModulesPage() {
           const coverImage = moduleCovers[module.order_index];
 
           return (
-            <Link
+            <a
               key={module.id}
-              to="/modules/$moduleId"
-              params={{ moduleId: module.id }}
+              href={withHubLanguage(`/modules/${module.id}`, language)}
               className="group flex flex-col overflow-hidden rounded-lg border border-border bg-card transition-all duration-[180ms] ease-out hover:-translate-y-0.5 hover:border-primary hover:shadow-md"
             >
               <div className="relative flex h-36 items-center justify-center overflow-hidden border-b border-border bg-secondary">
@@ -148,7 +155,8 @@ function ModulesPage() {
                   </div>
                 )}
                 <span className="absolute left-3 top-3 rounded-sm bg-background/90 px-2 py-1 font-display text-[10px] uppercase tracking-widest text-foreground backdrop-blur-sm">
-                  Module {String(module.order_index + 1).padStart(2, "0")}
+                  {language === "es" ? "Módulo" : "Module"}{" "}
+                  {String(module.order_index + 1).padStart(2, "0")}
                 </span>
               </div>
 
@@ -160,13 +168,21 @@ function ModulesPage() {
 
                 <div className="mt-auto border-t border-border pt-4">
                   <div className="mb-2 flex items-center justify-between text-xs text-muted-foreground">
-                    <span>{module.lessonCount} lessons</span>
-                    <span>{isHydrated ? `${percentage}% complete` : "Local progress"}</span>
+                    <span>
+                      {module.lessonCount} {language === "es" ? "lecciones" : "lessons"}
+                    </span>
+                    <span>
+                      {isHydrated
+                        ? `${percentage}% ${language === "es" ? "completado" : "complete"}`
+                        : language === "es"
+                          ? "Progreso local"
+                          : "Local progress"}
+                    </span>
                   </div>
                   <div
                     className="h-1.5 overflow-hidden rounded-full bg-muted"
                     role="progressbar"
-                    aria-label={`${module.title} completion`}
+                    aria-label={`${module.title} ${language === "es" ? "completado" : "completion"}`}
                     aria-valuemin={0}
                     aria-valuemax={100}
                     aria-valuenow={isHydrated ? percentage : 0}
@@ -177,11 +193,12 @@ function ModulesPage() {
                     />
                   </div>
                   <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-primary transition-transform duration-[180ms] ease-out group-hover:translate-x-0.5">
-                    Open module <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+                    {language === "es" ? "Abrir módulo" : "Open module"}{" "}
+                    <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
                   </span>
                 </div>
               </div>
-            </Link>
+            </a>
           );
         })}
       </div>
