@@ -15,6 +15,7 @@ test("Spanish localization covers all eight modules and forty lessons", () => {
 
 test("ES and EN use query-driven launches and one shared progress identity", () => {
   assert.match(language, /hubLang/);
+  assert.match(language, /import\.meta\.env\.BASE_URL/);
   assert.match(language, /"es" \| "en"/);
   assert.equal((progress.match(/aeroskills-anonymous-progress-v1/g) ?? []).length, 1);
   assert.doesNotMatch(progress, /hubLang|language/i);
