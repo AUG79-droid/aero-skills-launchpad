@@ -20,8 +20,12 @@ export function useHubLanguage() {
 }
 
 export function withHubLanguage(path: string, language: HubLanguage) {
-  const separator = path.includes("?") ? "&" : "?";
-  return `${path}${separator}hubLang=${language}`;
+  const base = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  const resolvedPath = path.startsWith("/") ? `${base}${path.slice(1)}` : path;
+  const separator = resolvedPath.includes("?") ? "&" : "?";
+  return `${resolvedPath}${separator}hubLang=${language}`;
 }
 
 export function switchHubLanguage(language: HubLanguage) {
