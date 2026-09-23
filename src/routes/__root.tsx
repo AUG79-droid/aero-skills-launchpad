@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { switchHubLanguage, useHubLanguage } from "@/lib/language";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -135,6 +136,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const language = useHubLanguage();
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -143,10 +145,37 @@ function RootComponent() {
           <AppSidebar />
           <div className="flex min-h-screen flex-1 flex-col">
             <header className="flex h-12 items-center gap-2 border-b border-border bg-surface px-4">
-              <SidebarTrigger aria-label="Open navigation" />
+              <SidebarTrigger
+                aria-label={language === "es" ? "Abrir navegación" : "Open navigation"}
+              />
               <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
-                AeroSkills / Aviation Environmental Performance
+                AeroSkills /{" "}
+                {language === "es"
+                  ? "Rendimiento ambiental de la aviación"
+                  : "Aviation Environmental Performance"}
               </span>
+              <div
+                className="ml-auto flex items-center gap-1"
+                aria-label={language === "es" ? "Idioma" : "Language"}
+              >
+                {(["es", "en"] as const).map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    onClick={() => switchHubLanguage(item)}
+                    aria-pressed={language === item}
+                    className={`rounded px-2 py-1 text-xs font-semibold ${language === item ? "bg-primary text-primary-foreground" : "border border-border bg-background"}`}
+                  >
+                    {item.toUpperCase()}
+                  </button>
+                ))}
+                <a
+                  href={`https://aug79-droid.github.io/sustainability-navigator/?lang=${language}#applications`}
+                  className="ml-2 hidden text-xs font-medium text-primary underline-offset-4 hover:underline sm:inline"
+                >
+                  {language === "es" ? "Volver al Hub" : "Return to Hub"}
+                </a>
+              </div>
             </header>
             <main className="flex-1">
               <Outlet />

@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 import {
   ArrowLeft,
   BookOpen,
@@ -18,12 +18,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { LessonContent } from "@/components/lesson-content";
-import {
-  readLocalProgress,
-  saveQuizScore,
-  setLessonCompletion,
-} from "@/lib/local-progress";
-import { getModuleDetail, gradeQuiz, type QuizGrade } from "@/lib/modules";
+import { useHubLanguage, withHubLanguage } from "@/lib/language";
+import { readLocalProgress, saveQuizScore, setLessonCompletion } from "@/lib/local-progress";
+import { getModuleDetail, gradeQuiz, localizeModuleDetail, type QuizGrade } from "@/lib/modules";
 
 type ModuleDetailData = NonNullable<Awaited<ReturnType<typeof getModuleDetail>>>;
 
@@ -59,7 +56,14 @@ export const Route = createFileRoute("/modules/$moduleId")({
 });
 
 function ModuleDetail() {
-  const { module: mod, lessons, quiz } = Route.useLoaderData() as ModuleDetailData;
+  const language = useHubLanguage();
+  const sourceDetail = Route.useLoaderData() as ModuleDetailData;
+  const {
+    module: mod,
+    lessons,
+    quiz,
+  } = useMemo(() => localizeModuleDetail(sourceDetail, language), [sourceDetail, language]);
+  const es = language === "es";
   const [completedLessonIds, setCompletedLessonIds] = useState<string[]>([]);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [grade, setGrade] = useState<QuizGrade | null>(null);
@@ -95,7 +99,9 @@ function ModuleDetail() {
     const unanswered = quiz.questions.filter((question) => !answers[question.id]);
     if (unanswered.length > 0) {
       setQuizError(
-        `Please answer all questions before submitting (${unanswered.length} remaining).`,
+        es
+          ? `Responde a todas las preguntas antes de enviar (${unanswered.length} pendientes).`
+          : `Please answer all questions before submitting (${unanswered.length} remaining).`,
       );
       return;
     }
@@ -112,7 +118,9 @@ function ModuleDetail() {
       setQuizError(
         error instanceof Error
           ? error.message
-          : "The assessment could not be marked. Please try again.",
+          : es
+            ? "No se pudo corregir la evaluación. Inténtalo de nuevo."
+            : "The assessment could not be marked. Please try again.",
       );
     } finally {
       setIsSubmitting(false);
@@ -127,16 +135,17 @@ function ModuleDetail() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-10 md:px-10">
-      <Link
-        to="/modules"
+      <a
+        href={withHubLanguage("/modules", language)}
         className="mb-6 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
       >
-        <ArrowLeft className="h-3 w-3" aria-hidden="true" /> Back to all modules
-      </Link>
+        <ArrowLeft className="h-3 w-3" aria-hidden="true" />{" "}
+        {es ? "Volver a todos los módulos" : "Back to all modules"}
+      </a>
 
       <header className="mb-8 border-b border-border pb-8">
         <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
-          Module {String(mod.order_index + 1).padStart(2, "0")}
+          {es ? "Módulo" : "Module"} {String(mod.order_index + 1).padStart(2, "0")}
         </span>
         <h1 className="mt-3 text-3xl leading-tight md:text-4xl">{mod.title}</h1>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">{mod.description}</p>
@@ -145,13 +154,12 @@ function ModuleDetail() {
           <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
           <div>
             <p className="font-display text-xs font-bold uppercase tracking-widest text-foreground">
-              Airbus anti-greenwashing context
+              {es ? "Contexto Airbus contra el greenwashing" : "Airbus anti-greenwashing context"}
             </p>
             <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              Statements identify their subject, boundary, comparator, timeframe and evidence status.
-              Phrases shown inside quotation marks as examples to review or avoid are deliberately
-              non-compliant and must not be reused as claims. Verify dated figures and linked sources
-              before using course content in external communication.
+              {es
+                ? "Las afirmaciones identifican su objeto, límite, comparador, plazo y estado de la evidencia. Las frases entre comillas que se muestran como ejemplos que revisar o evitar incumplen deliberadamente estos criterios y no deben reutilizarse como afirmaciones. Verifica las cifras fechadas y las fuentes enlazadas antes de usar el contenido del curso en comunicaciones externas."
+                : "Statements identify their subject, boundary, comparator, timeframe and evidence status. Phrases shown inside quotation marks as examples to review or avoid are deliberately non-compliant and must not be reused as claims. Verify dated figures and linked sources before using course content in external communication."}
             </p>
           </div>
         </div>
@@ -159,14 +167,17 @@ function ModuleDetail() {
         <div className="mt-4 rounded-lg border border-border bg-card p-4">
           <div className="mb-2 flex items-center justify-between text-xs text-muted-foreground">
             <span>
-              {completedInModule} of {lessons.length} lessons completed on this device
+              {completedInModule} {es ? "de" : "of"} {lessons.length}{" "}
+              {es
+                ? "lecciones completadas en este dispositivo"
+                : "lessons completed on this device"}
             </span>
             <span>{moduleProgress}%</span>
           </div>
           <div
             className="h-2 overflow-hidden rounded-full bg-muted"
             role="progressbar"
-            aria-label="Module completion"
+            aria-label={es ? "Progreso del módulo" : "Module completion"}
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={moduleProgress}
@@ -178,8 +189,9 @@ function ModuleDetail() {
           </div>
           <p className="mt-3 flex items-start gap-2 text-xs leading-relaxed text-muted-foreground">
             <LockKeyhole className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
-            Progress is stored only in this browser. No account, personal profile or individual
-            training record is created.
+            {es
+              ? "El progreso solo se guarda en este navegador. No se crea ninguna cuenta, perfil personal ni registro individual de formación."
+              : "Progress is stored only in this browser. No account, personal profile or individual training record is created."}
           </p>
         </div>
       </header>
@@ -187,7 +199,9 @@ function ModuleDetail() {
       <section className="mb-12">
         <div className="mb-4 flex items-center gap-2">
           <BookOpen className="h-4 w-4 text-primary" aria-hidden="true" />
-          <h2 className="font-display text-sm uppercase tracking-widest">Lessons</h2>
+          <h2 className="font-display text-sm uppercase tracking-widest">
+            {es ? "Lecciones" : "Lessons"}
+          </h2>
           <span className="text-xs text-muted-foreground">({lessons.length})</span>
         </div>
 
@@ -208,9 +222,15 @@ function ModuleDetail() {
                     </span>
                     <span className="font-display text-base font-medium">{lesson.title}</span>
                     {isComplete ? (
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-label="Completed" />
+                      <CheckCircle2
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                        aria-label={es ? "Completada" : "Completed"}
+                      />
                     ) : (
-                      <Circle className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" aria-label="Not completed" />
+                      <Circle
+                        className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground"
+                        aria-label={es ? "No completada" : "Not completed"}
+                      />
                     )}
                   </div>
                 </AccordionTrigger>
@@ -227,7 +247,13 @@ function ModuleDetail() {
                     }`}
                   >
                     <Check className="h-3.5 w-3.5" aria-hidden="true" />
-                    {isComplete ? "Marked as complete" : "Mark lesson as complete"}
+                    {isComplete
+                      ? es
+                        ? "Marcada como completada"
+                        : "Marked as complete"
+                      : es
+                        ? "Marcar la lección como completada"
+                        : "Mark lesson as complete"}
                   </button>
                 </AccordionContent>
               </AccordionItem>
@@ -240,15 +266,19 @@ function ModuleDetail() {
         <section>
           <div className="mb-4 flex items-center gap-2">
             <ClipboardCheck className="h-4 w-4 text-primary" aria-hidden="true" />
-            <h2 className="font-display text-sm uppercase tracking-widest">Knowledge check</h2>
+            <h2 className="font-display text-sm uppercase tracking-widest">
+              {es ? "Comprobación de conocimientos" : "Knowledge check"}
+            </h2>
           </div>
 
           <div className="rounded-lg border border-border bg-card p-5 md:p-6">
             <div className="mb-6 flex flex-col gap-2 border-b border-border pb-4 sm:flex-row sm:items-baseline sm:justify-between">
               <h3 className="font-display text-lg">{quiz.title}</h3>
               <span className="text-xs text-muted-foreground">
-                Pass mark: {quiz.passing_score}%
-                {previousScore !== null ? ` · Last score on this device: ${previousScore}%` : ""}
+                {es ? "Umbral de superación" : "Pass mark"}: {quiz.passing_score}%
+                {previousScore !== null
+                  ? ` · ${es ? "Última puntuación en este dispositivo" : "Last score on this device"}: ${previousScore}%`
+                  : ""}
               </span>
             </div>
 
@@ -263,7 +293,9 @@ function ModuleDetail() {
                   </div>
 
                   <fieldset className="ml-0 flex flex-col gap-2 sm:ml-8">
-                    <legend className="sr-only">Choose one answer</legend>
+                    <legend className="sr-only">
+                      {es ? "Elige una respuesta" : "Choose one answer"}
+                    </legend>
                     {question.options.map((option) => {
                       const isSelected = answers[question.id] === option.id;
 
@@ -301,7 +333,10 @@ function ModuleDetail() {
             </ol>
 
             {quizError && (
-              <p role="alert" className="mt-6 rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+              <p
+                role="alert"
+                className="mt-6 rounded-md border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive"
+              >
                 {quizError}
               </p>
             )}
@@ -322,10 +357,17 @@ function ModuleDetail() {
                   />
                   <div>
                     <p className="font-display text-sm font-bold">
-                      {grade.passed ? "Assessment passed" : "Keep learning and try again"}
+                      {grade.passed
+                        ? es
+                          ? "Evaluación superada"
+                          : "Assessment passed"
+                        : es
+                          ? "Sigue aprendiendo e inténtalo de nuevo"
+                          : "Keep learning and try again"}
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">
-                      Score: {grade.score}% · {grade.correctCount} of {grade.total} correct
+                      {es ? "Puntuación" : "Score"}: {grade.score}% · {grade.correctCount}{" "}
+                      {es ? "de" : "of"} {grade.total} {es ? "correctas" : "correct"}
                     </p>
                   </div>
                 </div>
@@ -339,17 +381,25 @@ function ModuleDetail() {
                 disabled={isSubmitting || quiz.questions.length === 0}
                 className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                {isSubmitting ? "Marking assessment…" : "Submit answers"}
+                {isSubmitting
+                  ? es
+                    ? "Corrigiendo evaluación…"
+                    : "Marking assessment…"
+                  : es
+                    ? "Enviar respuestas"
+                    : "Submit answers"}
               </button>
               <button
                 type="button"
                 onClick={resetQuiz}
                 className="inline-flex items-center justify-center rounded-md border border-border bg-background px-4 py-2.5 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
               >
-                Reset answers
+                {es ? "Restablecer respuestas" : "Reset answers"}
               </button>
               <p className="w-full text-xs leading-relaxed text-muted-foreground sm:ml-auto sm:w-auto sm:max-w-xs sm:text-right">
-                Answers are checked securely and are not stored as an individual attempt.
+                {es
+                  ? "Las respuestas se comprueban de forma segura y no se guardan como intento individual."
+                  : "Answers are checked securely and are not stored as an individual attempt."}
               </p>
             </div>
           </div>
