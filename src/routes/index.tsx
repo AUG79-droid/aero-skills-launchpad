@@ -13,5 +13,14 @@ function HomeRedirect() {
     window.location.replace(withHubLanguage("/modules", language));
   }, []);
 
-  return <p className="p-8 text-sm text-muted-foreground">Opening learning modules…</p>;
+  const language =
+    typeof window !== "undefined" &&
+    new URLSearchParams(window.location.search).get("hubLang") === "es"
+      ? "es"
+      : "en";
+  return (
+    <p className="p-8 text-sm text-muted-foreground">
+      {language === "es" ? "Abriendo módulos de aprendizaje…" : "Opening learning modules…"}
+    </p>
+  );
 }
