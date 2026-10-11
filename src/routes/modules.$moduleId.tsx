@@ -134,7 +134,7 @@ function ModuleDetail() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-10 md:px-10">
+    <div className="mx-auto max-w-6xl px-6 py-10 md:px-10">
       <a
         href={withHubLanguage("/modules", language)}
         className="mb-6 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
