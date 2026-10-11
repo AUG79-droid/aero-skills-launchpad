@@ -150,19 +150,19 @@ function RootComponent() {
       <SidebarProvider>
         <div className="flex min-h-screen w-full">
           <AppSidebar />
-          <div className="flex min-h-screen flex-1 flex-col">
+          <div className="flex min-h-screen min-w-0 flex-1 flex-col">
             <header className="flex h-12 items-center gap-2 border-b border-border bg-surface px-4">
               <SidebarTrigger
                 aria-label={language === "es" ? "Abrir navegación" : "Open navigation"}
               />
-              <span className="font-display text-xs uppercase tracking-widest text-muted-foreground">
+              <span className="min-w-0 flex-1 truncate font-display text-xs uppercase tracking-widest text-muted-foreground">
                 AeroSkills /{" "}
                 {language === "es"
                   ? "Rendimiento ambiental de la aviación"
                   : "Aviation Environmental Performance"}
               </span>
               <div
-                className="ml-auto flex items-center gap-1"
+                className="ml-auto flex shrink-0 items-center gap-1"
                 aria-label={language === "es" ? "Idioma" : "Language"}
               >
                 {(["es", "en"] as const).map((item) => (
