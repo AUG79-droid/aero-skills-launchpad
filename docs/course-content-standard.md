@@ -23,3 +23,11 @@ Each module must function as a genuine learning unit rather than a short article
 - Avoid presenting public corporate targets as guaranteed outcomes.
 - Avoid confidential or internal Airbus information.
 - Prefer primary sources such as Airbus public documentation, EASA, ICAO, the European Commission, IPCC and recognised aviation standards bodies.
+
+## Visual policy
+
+- Vegetation and aircraft must never appear in the same image.
+- Nature and vegetation visuals must contain no aircraft.
+- Aircraft visuals may show only the Airbus A400M or Eurofighter Typhoon.
+- A400M and Eurofighter visuals must use technical, industrial, hangar, apron, laboratory or abstract data settings with no visible vegetation.
+- Do not use civilian aircraft, generic passenger jets or visual associations that imply an unverified positive environmental performance.

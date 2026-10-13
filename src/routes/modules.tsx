@@ -8,6 +8,8 @@ import { listModulesWithLessonCount, localizeModuleList } from "@/lib/modules";
 
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
+// Visual policy: nature or vegetation never shares an image with an aircraft.
+// Any aircraft shown must be an A400M or Eurofighter in a vegetation-free technical setting.
 const moduleCovers = [
   assetUrl("module-covers/module-01-systems.webp"),
   assetUrl("module-covers/module-02-climate.webp"),
